@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name ="testname1">
+    <test name="testdemo1">
+        <classes>
+            <class name="ExportReportPackage.TestDemo">
+                <methods>
+                    <inclube name="test1"/>
+                    <inclube name="test2"/>
+                    <inclube name="test3"/>
+                    <inclube name="logDemo"/>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+    <!--配置监听器-->
+    <listeners>
+        <listener class-name="ExportReportPackage.ExtentTestNGIReporterListenerOld"/>
+    </listeners>
+</suite>

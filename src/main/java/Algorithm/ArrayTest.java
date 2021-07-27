@@ -561,9 +561,39 @@ public class ArrayTest {
     }
 
     /**
-     * 方法三：快速排序
+     * 方法三：快速排序+二分法
+     *
      */
+    public static int findKthLargest2(int [] nums,int k) {
+        return quickSort(nums,0,nums.length-1,k);
+    }
 
+    private  static int quickSort(int [] arr,int left,int right,int k) {
+        int index = partition(arr,left,right);
+        if(index == arr.length-k) {
+            return arr[index];
+        } else if(index<arr.length-k) {
+            return quickSort(arr,index+1,right,k);
+        } else {
+            return quickSort(arr,left,index-1,k);
+        }
+    }
+
+    private static int partition(int [] arr,int left,int right) {
+        int key = arr[left];
+        while(left < right) {
+            while(left<right && arr[right]>=key) {
+                right--;
+            }
+            arr[left] = arr[right];
+            while(left<right && arr[left] <= key) {
+                left++;
+            }
+            arr[right] = arr[left];
+        }
+        arr[left] = key;
+        return left;
+    }
 
     /**
      * 最长重复子数组
@@ -596,11 +626,163 @@ public class ArrayTest {
         return 0;
     }
 
-    public static void main(String [] args) {
-        int [] nums1 = {0,1,1,1,1};
-        int [] nums2 = {1,0,1,0,1};
-        int result = findLength(nums1,nums2);
-        System.out.println(result);
+
+    /**
+     * 二分查找（牛客）
+     * 请实现有重复数字的升序数组的二分查找
+     * 给定一个 元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的第一个出现的target，
+     * 如果目标值存在返回下标，否则返回 -1
+     */
+    public int search (int[] nums, int target) {
+        if(nums == null || nums.length == 0) {
+            return -1;
+        }
+        if(nums[0]>target || nums[nums.length-1]<target) {
+            return -1;
+        }
+        int low = 0;
+        int high = nums.length-1;
+        while(low<=high) {
+            int mid = (low+high)/2;
+            if(nums[mid] == target) {
+                if(mid>0 && nums[mid] == nums[mid-1]) {
+                    high = mid;
+                } else {
+                    return mid;
+                }
+            } else if(nums[mid]>target) {
+                high = mid-1;
+            } else if(nums[mid]<target) {
+                low = mid+1;
+            }
+        }
+        return -1;
+    }
+
+
+    /**
+     * 最长无重复子数组（牛客）
+     * 给定一个数组arr，返回arr的最长无重复元素子数组的长度，无重复指的是所有数字都不相同。
+     * 子数组是连续的，比如[1,3,5,7,9]的子数组有[1,3]，[3,5,7]等等，但是[1,3,7]不是子数组
+     */
+    public int maxLength (int[] arr) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int maxLength = 0;
+        int left = 0;
+        int right = 0;
+        while(right < arr.length) {
+            if(!map.containsKey(arr[right])) {
+                map.put(arr[right],right);
+            } else {
+                left = Math.max(left,map.get(arr[right])+1);
+                map.put(arr[right],right);
+            }
+            maxLength = Math.max(maxLength,right-left+1);
+            right++;
+        }
+        return maxLength;
+    }
+
+    /**
+     * 最小的k个数（牛客）
+     * 给定一个数组，找出其中最小的K个数。例如数组元素是4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4
+     * 方法一：冒泡排序，将最小的k个数放到数组最后面
+     */
+    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if(input.length == 0 || k>input.length) return result;
+        for(int i = 0;i<k;i++) {
+            for(int j = 0;j<input.length-i-1;j++) {
+                if(input[j]<input[j+1]) {
+                    int temp = input[j];
+                    input[j] = input[j+1];
+                    input[j+1] = temp;
+                }
+            }
+            result.add(input[input.length-i-1]);
+        }
+        return result;
+    }
+
+    /**
+     * 方法二：优先队列，构建大根堆，堆的大小不超过k，遍历数组中元素，堆顶的元素是最大的，如果大于堆顶元素，直接放弃，小于堆顶元素的，
+     * 将堆顶元素删除，将元素插入堆中
+     */
+    public static ArrayList<Integer> GetLeastNumbers_Solution1(int [] input,int k) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if(k ==0 || input.length<k) {
+            return result;
+        }
+        //创建最大堆
+        PriorityQueue<Integer> queue = new PriorityQueue<>((num1,num2)->num2-num1);
+        //先往堆中放数组的前k个元素
+        for(int i = 0;i<k;i++) {
+            queue.add(input[i]);
+        }
+        for(int i = k;i<input.length;i++) {
+            if(queue.peek()>input[i]) {
+                queue.poll();
+                queue.add(input[i]);
+            }
+        }
+        for(int i = 0;i<k;i++) {
+            result.add(queue.poll());
+        }
+        return result;
+    }
+
+    /**
+     * 合并两个有序数组（牛客）
+     * 给出一个整数数组 和有序的整数数组 ，请将数组 合并到数组 中，变成一个有序的升序数组
+     * 注意：
+     * 1.可以假设 数组有足够的空间存放 数组的元素， 和 中初始的元素数目分别为 和 ，的数组空间大小为 +
+     * 2.不要返回合并的数组，返回是空的，将数组 的数据合并到里面就好了
+     * 3.数组在[0,m-1]的范围也是有序的
+     *
+     * 方法：使用双指针从后往前遍历，将大的放到数组后面
+     */
+    public static  void merge(int [] A,int m,int [] B,int n) {
+        int i = m-1;
+        int j = n-1;
+        int index = m+n-1;
+        while(i>=0 && j>=0) {
+            if(A[i]>=B[j]) {
+                A[index--] = A[i--];
+            } else {
+                A[index--] = B[j--];
+            }
+        }
+        //若A遍历完了B还没遍历完，直接将B内剩余的元素存入到A剩余空间内
+        while(j>=0) {
+            A[index--] = B[j--];
+        }
+    }
+
+    /**
+     * 子数组的最大累加和(牛客)
+     * 给定一个数组arr，返回子数组的最大累加和
+     * 例如，arr = [1, -2, 3, 5, -2, 6, -1]，所有子数组中，[3, 5, -2, 6]可以累加出最大的和12，所以返回12.
+     * 题目保证没有全为负数的数据
+     *
+     * [要求]
+     * 时间复杂度为O(n)，空间复杂度为O(1)
+     *
+     * 方法一：记录累加和，若加上当前元素累加和小于0，则将累加和归0
+     */
+    public static int maxsumofSubarray(int [] arr) {
+        if(arr == null || arr.length == 0) {
+            return -1;
+        }
+        int maxSum = Integer.MIN_VALUE;
+        int total = 0;
+        for(int i = 0;i<arr.length;i++) {
+            total += arr[i];
+            if(total<0) {
+                total = 0;
+            }
+            maxSum = Math.max(maxSum,total);
+        }
+        return maxSum;
     }
 
 }

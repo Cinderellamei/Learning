@@ -1,8 +1,6 @@
 package Algorithm;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 public class TreeNodeTest {
     public static void main(String [] args) {
@@ -234,6 +232,78 @@ public class TreeNodeTest {
             return -1;
         }
         return left > right?left+1:right+1;
+    }
+
+    /**
+     * 实现二叉树先序，中序和后序遍历（牛客）
+     * 分别按照二叉树先序，中序和后序打印所有的节点
+     */
+    public ArrayList<Integer> pre = new ArrayList<>();
+    public ArrayList<Integer> in = new ArrayList<>();
+    public ArrayList<Integer> post = new ArrayList<>();
+
+    public int [][] threeOrders(TreeNode root) {
+        preOrder(root);
+        inOrder(root);
+        postOrder(root);
+        int [][] result = new int[3][pre.size()];
+        result[0] = toIntArray(pre);
+        result[1] = toIntArray(in);
+        result[2] = toIntArray(post);
+        return result;
+
+    }
+
+    public int [] toIntArray(ArrayList<Integer> list) {
+        if(list == null || list.size() < 1) {
+            return new int[0];
+        }
+        int [] result = new int[list.size()];
+        for(int i = 0;i<list.size();i++) {
+            result[i] = list.get(i);
+        }
+        return result;
+    }
+
+    public void preOrder(TreeNode root) {
+        if(root == null) {
+            return ;
+        }
+        pre.add(root.val);
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+    public void inOrder(TreeNode root) {
+        if(root == null) {
+            return ;
+        }
+        inOrder(root.left);
+        in.add(root.val);
+        inOrder(root.right);
+    }
+
+    public void postOrder(TreeNode root) {
+        if(root == null) {
+            return ;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        post.add(root.val);
+    }
+
+    /**
+     * 非递归的前、中、后序遍历
+     */
+    public void preOrder1(TreeNode root) {
+
+    }
+
+    public void inOrder1(TreeNode root) {
+
+    }
+
+    public void postOrder1(TreeNode root) {
+
     }
 
 

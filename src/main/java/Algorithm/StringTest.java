@@ -1,17 +1,8 @@
 package Algorithm;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class StringTest {
-    public static void main(String [] args) {
-        /*StringBuffer str = new StringBuffer("We Are Happy  !");
-        String result = replaceSpace(str);
-        System.out.println(result);*/
-
-        String str = "student. a am I";
-        System.out.println(ReverseSentence(str));
-    }
-
     /*
     给定一个字符串，将该字符串中每个空格替换成"%20"
     思路：先统计出空格数，然后统一插入
@@ -131,5 +122,59 @@ public class StringTest {
             end--;
         }
     }
+
+    /**
+     * 翻转字符串（牛客）
+     * 写出一个程序，接受一个字符串，然后输出该字符串反转后的字符串。（字符串长度不超过1000）
+     * 方法一：使用栈先进后出的特点，进行字符串反转
+     */
+    public String solve (String str) {
+        char [] arr = str.toCharArray();
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0;i<arr.length;i++) {
+            stack.push(arr[i]);
+        }
+        StringBuffer stb = new StringBuffer();
+        while(!stack.isEmpty()) {
+            stb.append(stack.pop());
+        }
+        return stb.toString();
+    }
+
+    /**
+     * 方法二：
+     */
+    public static String solve1(String str) {
+        int size = str.length();
+        char [] arr = new char[size];
+        for(int i = 0;i<size;i++) {
+            arr[i] = str.charAt(size-i-1);
+        }
+        return new String(arr);
+    }
+
+    /**
+     * 方法三：原地交换元素
+     */
+    public static String solve2(String str) {
+        if(str == null || str.length() == 0) {
+            return str;
+        }
+        char [] arr = str.toCharArray();
+        int size = arr.length;
+        for(int i = 0;i<size/2;i++) {
+            char temp = arr[size-i-1];
+            arr[size-i-1] = arr[i];
+            arr[i] = temp;
+        }
+        return new String(arr);
+    }
+
+    public static void main(String [] args) {
+        String str = "abcd";
+        System.out.println(solve2(str));
+    }
+
+
 
 }

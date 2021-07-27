@@ -24,7 +24,7 @@ public class TreeNodeTest {
      * 输入一棵二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径。从树的根节点开始往下一直到叶节点所经过的节点形成一条路径
      */
     public ArrayList<ArrayList<Integer>> pathSum(TreeNode root, int target) {
-        ArrayList<ArrayList<Integer>> array = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> array = new ArrayList<>();
         if (root == null) {
             return array;
         }
@@ -52,6 +52,7 @@ public class TreeNodeTest {
         find(root.right, target, array, tempArray, sum);
         tempArray.remove(tempArray.size() - 1);
     }
+
 
     /**
      * 翻转一颗二叉树

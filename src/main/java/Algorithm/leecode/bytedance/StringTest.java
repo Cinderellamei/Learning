@@ -143,10 +143,4 @@ public class StringTest {
         return str.toString();
     }
 
-    public static void main(String [] args) {
-        String s = "1";
-        String t = "99";
-        System.out.println(bigNumber(s,t));
-    }
-
 }

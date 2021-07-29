@@ -61,7 +61,7 @@ public class TreeNodeTest {
     操作给定的二叉树，将其变换为源二叉树的镜像。
     思路：借助栈交换节点的左右子节点
      */
-    public static void mirror(TreeNode root) {
+    public void mirror(TreeNode root) {
         if(root == null) return ;
         Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.push(root);
@@ -75,6 +75,20 @@ public class TreeNodeTest {
             if(node.left != null) stack.push(node.right);
             if(node.right != null) stack.push(node.left);
         }
+    }
+
+    /**
+     * 方法二：递归
+     */
+    public void mirror1(TreeNode root) {
+        if(root == null) {
+            return ;
+        }
+        TreeNode tempNode = root.left;
+        root.left = root.right;
+        root.right = tempNode;
+        mirror(root.left);
+        mirror(root.right);
     }
 
     /*
@@ -305,6 +319,5 @@ public class TreeNodeTest {
     public void postOrder1(TreeNode root) {
 
     }
-
 
 }

@@ -286,9 +286,4 @@ public class LinkedListTest {
         }
 
     }
-
-
-
-
-
 }

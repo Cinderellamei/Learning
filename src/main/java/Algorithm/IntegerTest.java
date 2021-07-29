@@ -3,11 +3,6 @@ package Algorithm;
 import java.util.Stack;
 
 public class IntegerTest {
-    public static void main(String [] args) {
-        /*double base = 4;
-        int exponent = -3;
-        System.out.println(Power(base,exponent));*/
-    }
 
     /*
     给定一个数base和指数exponent，求base的exponent次方
@@ -77,8 +72,29 @@ public class IntegerTest {
     }
 
     /**
-     * 表达式求值
-     * 请写一个整数计算器，支持加减乘三种运算和括号
+     *  求平方根
+     *  实现函数 int sqrt(int x).
+     * 计算并返回x的平方根（向下取整）
      */
+    public static int sqrt(int x) {
+        if(x <= 0) {
+            return 0;
+        }
+        int left = 1;
+        int right = x;
+        int result = -1;
+        while(left <= right) {
+            int mid = (left + right) / 2;
+            if (mid <= x / mid && (mid + 1) > x / (mid + 1)) {
+                result = mid;
+                return result;
+            } else if (mid < x / mid) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return result;
+    }
 
 }

@@ -69,17 +69,17 @@ public class LinkedListTest {
      *
      * 如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。
      *
+     * 方法一：
      * 思路：链表分区为已翻转部分+待翻转部分+未翻转部分
-     * 每次翻转前，要确定翻转链表的范围，这个必须通过 k 此循环来确定
+     * 每次翻转前，要确定翻转链表的范围，这个必须通过 k 次循环来确定
      * 需记录翻转链表前驱和后继，方便翻转完成后把已翻转部分和未翻转部分连接起来
      * 初始需要两个变量 pre 和 end，pre 代表待翻转链表的前驱，end 代表待翻转链表的末尾
      * 经过k此循环，end 到达末尾，记录待翻转链表的后继 next = end.next
      * 翻转链表，然后将三部分链表连接起来，然后重置 pre 和 end 指针，然后进入下一次循环
      * 特殊情况，当翻转部分长度不足 k 时，在定位 end 完成后，end==null，已经到达末尾，说明题目已完成，直接返回即可
-     * 时间复杂度为 O(n*K)O(n∗K) 最好的情况为 O(n)O(n) 最差的情况未 O(n^2)O(n
-     * 2
-     *  )
-     * 空间复杂度为 O(1)O(1) 除了几个必须的节点指针外，我们并没有占用其他空间
+     * 时间复杂度为O(n∗K) 最好的情况为O(n) 最差的情况为 O(n^2)
+     *
+     * 空间复杂度为 O(1) 除了几个必须的节点指针外，我们并没有占用其他空间
      * 时间复杂度较高
      *
      */
@@ -120,6 +120,48 @@ public class LinkedListTest {
         }
         return pre;
     }
+
+    /**
+     * k个一组翻转链表
+     * 方法二：头插法
+     */
+    public ListNode reverseKGroup1(ListNode head,int k) {
+        if(head == null || head.next == null || k == 1) {
+            return head;
+        }
+        ListNode newHead = new ListNode(0);
+        newHead.next = head;
+        int length = 0;
+        //pre是每一小段的头节点，负责连接
+        ListNode pre = newHead;
+        ListNode cur = head;
+        ListNode next = null;
+
+        //计算链表长度
+        while(head != null) {
+            length++;
+            head = head.next;
+        }
+
+        //分段使用头插法将链表翻转
+        //k个一组翻转需要重复length/k次
+        for(int i = 0;i<length/k;i++) {
+            for(int j = 1;j<k;j++) {
+                //头插法
+                next = cur.next;
+                cur.next = next.next;
+                //next.next = cur是错的，next要衔接的是子序列的头节点，不是前一个节点
+                next.next = pre.next;
+                pre.next = next;
+            }
+            //每个子序列翻转完后，pre和cur需要更新到下一个序列
+            pre = cur;
+            cur = cur.next;
+        }
+        return newHead.next;
+    }
+
+
 
     /**
      * 相交链表

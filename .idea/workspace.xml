@@ -24,14 +24,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/StringTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="3006" column="25" selection-start-line="3006" selection-start-column="25" selection-end-line="3006" selection-end-column="25" />
+            <state relative-caret-position="428">
+              <caret line="142" column="30" lean-forward="true" selection-start-line="126" selection-start-column="8" selection-end-line="142" selection-end-column="30" />
               <folding>
-                <element signature="e#118405#118406#0" expanded="true" />
-                <element signature="e#118444#118445#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -40,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/LinkedListTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="247" selection-start-line="247" selection-end-line="247" />
+            <state relative-caret-position="458">
+              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,16 +63,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/IntegerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="75" column="38" lean-forward="true" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
+            <state relative-caret-position="379">
+              <caret line="93" column="32" lean-forward="true" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/tree/TreeNodeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="335">
               <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -151,6 +150,9 @@
       <find>翻转</find>
       <find>最长回文</find>
       <find>和为</find>
+      <find>平方</find>
+      <find>k个一组</find>
+      <find>最长公共</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,17 +201,17 @@
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/IntegerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/Sorts/Sorts.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/DNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/LinkedListTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/CQueue.java" />
         <option value="$PROJECT_DIR$/src/main/java/classLoader/ClassLoaderTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/StringTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/ListNodeTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/TreeNodeTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/ArrayTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Algorithm/IntegerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/tree/TreeNodeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithm/IntegerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/LinkedListTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/StringTest.java" />
       </list>
     </option>
   </component>
@@ -342,20 +344,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StringTest (1)">
-    <configuration name="ArrayList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="leecode.hot100.ArrayList" />
-      <module name="learning" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Algorithm.leecode.hot100.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.StringTest">
     <configuration name="ArrayTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Algorithm.ArrayTest" />
       <module name="learning" />
@@ -397,12 +386,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sorts" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithm.Sorts.Sorts" />
+    <configuration name="IntegerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithm.IntegerTest" />
       <module name="learning" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Algorithm.Sorts.*" />
+          <option name="PATTERN" value="Algorithm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -439,19 +428,19 @@
     <list>
       <item itemvalue="Application.GCOverHeadDemo" />
       <item itemvalue="Application.GoneDemo" />
-      <item itemvalue="Application.ArrayList" />
       <item itemvalue="Application.StringTest (1)" />
-      <item itemvalue="Application.Sorts" />
       <item itemvalue="Application.ArrayTest" />
       <item itemvalue="Application.ArrayTest (1)" />
+      <item itemvalue="Application.IntegerTest" />
+      <item itemvalue="Application.StringTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StringTest" />
+        <item itemvalue="Application.IntegerTest" />
         <item itemvalue="Application.StringTest (1)" />
         <item itemvalue="Application.ArrayTest (1)" />
         <item itemvalue="Application.ArrayTest" />
-        <item itemvalue="Application.StringTest (1)" />
-        <item itemvalue="Application.Sorts" />
       </list>
     </recent_temporary>
   </component>
@@ -485,7 +474,7 @@
       <workItem from="1623124157059" duration="313000" />
       <workItem from="1623124992486" duration="16927000" />
       <workItem from="1623896165967" duration="107768000" />
-      <workItem from="1625627775826" duration="80662000" />
+      <workItem from="1625627775826" duration="87787000" />
     </task>
     <servers />
   </component>
@@ -498,20 +487,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="491183000" />
+    <option name="totallyTimeSpent" value="498308000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33715925" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33715925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.4263285" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49569583" visible="true" weight="0.24879228" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49569583" visible="true" weight="0.2004831" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49713057" weight="0.48550725" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -519,7 +508,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32971016" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5043042" side_tool="true" visible="true" weight="0.24879228" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5043042" side_tool="true" visible="true" weight="0.2004831" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4985653" weight="0.32971016" />
       <window_info anchor="bottom" id="Spring" order="13" />
@@ -868,30 +857,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/StringTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="562" lean-forward="true" selection-start-line="562" selection-end-line="562" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/LinkedListTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="247" selection-start-line="247" selection-end-line="247" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -961,17 +930,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/IntegerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/tree/TreeNodeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="75" column="38" lean-forward="true" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
+        <state relative-caret-position="335">
+          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/tree/TreeNodeTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/IntegerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        <state relative-caret-position="379">
+          <caret line="93" column="32" lean-forward="true" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/LinkedListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/StringTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="142" column="30" lean-forward="true" selection-start-line="126" selection-start-column="8" selection-end-line="142" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

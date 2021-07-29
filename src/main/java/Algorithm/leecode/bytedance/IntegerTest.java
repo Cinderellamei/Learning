@@ -56,6 +56,41 @@ public class IntegerTest {
     }
 
     /**
+     * 方法二：
+     */
+    public int missingNumber1(int [] nums) {
+        boolean [] arr = new boolean[nums.length+1];
+
+        for(int i = 0;i<nums.length;i++) {
+            arr[nums[i]] = true;
+        }
+
+        for(int i = 0;i<arr.length;i++) {
+            if(arr[i] == false) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 方法三：二分查找
+     */
+    public int missingNumber2(int [] nums) {
+        int left = 0;
+        int right = nums.length;
+        while(left <right) {
+            int mid = (left+right)/2;
+            if(nums[mid] == mid ) {
+                left = mid+1;
+            } else if(nums[mid]>mid) {
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+    /**
      * 青蛙跳台阶问题
      *
      * 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。
@@ -77,7 +112,7 @@ public class IntegerTest {
 
 
     /**
-     * 数组中只出现一次的数
+     * 数组中数字出现的次数
      * 一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。
      * 思路一：不符合题目条件的，新建一个map，遍历每个数组，数组元素是key，元素出现的次数是value，然后遍历一遍map，将出现次数为1的元素输出
      */
@@ -119,9 +154,9 @@ public class IntegerTest {
             m <<=1;
         }
         for(int num:nums) {
-            if((num&m) == 0) {
+            if((num&m) != 0) {
                 x ^= num;
-            } else if((num&m) == 1) {
+            } else if((num&m) == 0) {
                 y ^= num;
             }
         }

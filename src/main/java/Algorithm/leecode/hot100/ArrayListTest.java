@@ -229,6 +229,30 @@ public class ArrayListTest {
             return -1;
         }
 
+    /**
+     * 旋转数组的最小数值(把一个数组最开始的若干个元素搬到末尾，成为数组的旋转)
+     * 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。
+     * 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。
+     * NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
+     * 思路：二分查找法
+    **/
+    public static int minNumberInRotateArray(int [] array) {
+        if(array.length == 0) return -1;
+        int low = 0;
+        int high = array.length-1;
+        while(low < high) {
+            int mid = (low+high)/2;
+            if(array[mid] < array[high]) {
+                high = mid;
+            } else if(array[mid] == array[high]) {
+                high--;
+            } else if(array[mid] > array[high]) {
+                low = mid + 1;
+            }
+        }
+        return array[low];
+    }
+
         /**
          * 领取兑换
          * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
@@ -588,4 +612,5 @@ public class ArrayListTest {
         }
         return -1;
     }
+
 }

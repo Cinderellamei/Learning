@@ -118,5 +118,29 @@ public class StringTest {
         return dp[m][n];
     }
 
+    /**
+     * 大数加法（牛客）
+     * 以字符串的形式读入两个数字，编写一个函数计算它们的和，以字符串形式返回。
+     * （字符串长度不大于100000，保证字符串仅由'0'~'9'这10种字符组成）
+     */
+    public static String bigNumber(String s,String t) {
+        StringBuffer str = new StringBuffer();
+        int i = s.length()-1;
+        int j = t.length()-1;
+
+        int result = 0;
+        int carry = 0;
+        while(i>=0 || j >= 0) {
+            int x = i<0?0:s.charAt(i--)-'0';
+            int y = j<0?0:t.charAt(j--)-'0';
+            result = x+y+carry;
+            carry = result/10;
+            str.insert(0,result%10);
+        }
+        if(carry >0) {
+            str.insert(0,carry);
+        }
+        return str.toString();
+    }
 
 }

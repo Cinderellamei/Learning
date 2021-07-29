@@ -170,11 +170,4 @@ public class StringTest {
         return new String(arr);
     }
 
-    public static void main(String [] args) {
-        String str = "abcd";
-        System.out.println(solve2(str));
-    }
-
-
-
 }

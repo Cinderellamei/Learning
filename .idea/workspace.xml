@@ -76,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/hot100/ArrayListTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="524">
-              <caret line="590" lean-forward="true" selection-start-line="590" selection-end-line="590" />
+              <caret line="616" lean-forward="true" selection-start-line="616" selection-end-line="616" />
             </state>
           </provider>
         </entry>
@@ -105,15 +105,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/ArrayTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="784" column="30" selection-start-line="784" selection-start-column="30" selection-end-line="784" selection-end-column="30" />
+            <state relative-caret-position="494">
+              <caret line="762" column="1" lean-forward="true" selection-start-line="762" selection-start-column="1" selection-end-line="762" selection-end-column="1" />
               <folding>
                 <element signature="e#17056#17057#0" expanded="true" />
                 <element signature="e#17112#17113#0" expanded="true" />
                 <element signature="e#17855#17856#0" expanded="true" />
                 <element signature="e#17878#17879#0" expanded="true" />
                 <element signature="e#19748#19757#0" expanded="true" />
-                <element signature="e#23568#23569#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -486,7 +485,7 @@
       <workItem from="1623124157059" duration="313000" />
       <workItem from="1623124992486" duration="16927000" />
       <workItem from="1623896165967" duration="107768000" />
-      <workItem from="1625627775826" duration="98096000" />
+      <workItem from="1625627775826" duration="98444000" />
     </task>
     <servers />
   </component>
@@ -499,20 +498,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="508617000" />
+    <option name="totallyTimeSpent" value="508965000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33715925" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33715925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.4263285" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49569583" visible="true" weight="0.2004831" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49569583" visible="true" weight="0.2004831" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49713057" weight="0.48550725" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -947,7 +946,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/hot100/ArrayListTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
-          <caret line="590" lean-forward="true" selection-start-line="590" selection-end-line="590" />
+          <caret line="616" lean-forward="true" selection-start-line="616" selection-end-line="616" />
         </state>
       </provider>
     </entry>
@@ -963,15 +962,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/ArrayTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="784" column="30" selection-start-line="784" selection-start-column="30" selection-end-line="784" selection-end-column="30" />
+        <state relative-caret-position="494">
+          <caret line="762" column="1" lean-forward="true" selection-start-line="762" selection-start-column="1" selection-end-line="762" selection-end-column="1" />
           <folding>
             <element signature="e#17056#17057#0" expanded="true" />
             <element signature="e#17112#17113#0" expanded="true" />
             <element signature="e#17855#17856#0" expanded="true" />
             <element signature="e#17878#17879#0" expanded="true" />
             <element signature="e#19748#19757#0" expanded="true" />
-            <element signature="e#23568#23569#0" expanded="true" />
           </folding>
         </state>
       </provider>

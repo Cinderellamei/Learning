@@ -6,67 +6,6 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class ListNodeTest {
-    public static void main(String [] args) {
-        /*ListNode node =  new ListNode(1);
-        ListNode node1 = new ListNode(2);
-        ListNode node2 = new ListNode(3);
-        ListNode node3 = new ListNode(4);
-        ListNode node4 = new ListNode(5);
-        node.next = node1;
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list = printListFromTailToHead(node);
-        System.out.println(list);*/
-
-        /*ListNode head = new ListNode(1);
-        ListNode node = new ListNode(2);
-        ListNode node1 = new ListNode(3);
-        ListNode node2 = new ListNode(4);
-        ListNode node3 = new ListNode(5);
-        ListNode node4 = new ListNode(6);
-        ListNode node5 = new ListNode(7);
-        head.next = node;
-        node.next = node1;
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        node4.next = node5;
-        int k = 4;
-        ListNode result = findKthToTail(head,k);
-        System.out.println(result.val);*/
-
-        /*ListNode head = new ListNode(1);
-        ListNode node = new ListNode(2);
-        ListNode node1 = new ListNode(3);
-        ListNode node2 = new ListNode(4);
-        ListNode node3 = new ListNode(5);
-        head.next = node;
-        node.next = node1;
-        node1.next = node2;
-        node2.next = node3;
-        ListNode newHead = reverseList(head);
-        System.out.println(newHead.val);*/
-
-        /*ListNode list1 = new ListNode(1);
-        ListNode list12 = new ListNode(3);
-        ListNode list13 = new ListNode(5);
-        list1.next = list12;
-        list12.next = list13;
-
-        ListNode list2 = new ListNode(2);
-        ListNode list21 = new ListNode(4);
-        ListNode list23 = new ListNode(7);
-        list2.next = list21;
-        list21.next = list23;
-        ListNode result = mergeList(list1,list2);
-        System.out.println(result.val);;*/
-
-        int [] arr = {1,2,3,3,3,3,4,5,6,7,7,10};
-        System.out.println(getNumberOfK(arr,3));
-    }
-
     /*
     给定一个链表，实现从尾到头打印连标
     思路：用一个栈存储链表，再输出
@@ -262,8 +201,70 @@ public class ListNodeTest {
     }
 
     /*
-    判断一个链表是不是回文链表
+    * 判断一个链表是不是回文链表
+    * 方法一：先通过快慢指针找到链表中间节点，然后将后半边链表反转，然后比较前半部分链表和后半部分链表元素是否一致
      */
+    public boolean isPail (ListNode head) {
+        // write code here
+        if(head == null || head.next == null) {
+            return true;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        //如果fast不为空，说明链表长度是奇数
+        if(fast != null) {
+            slow = slow.next;
+        }
+        slow = reverse(slow);
+        fast = head;
+        while(slow != null) {
+            if(fast.val != slow.val) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return true;
+    }
+    
+    public ListNode reverse(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while(cur != null) {
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+
+    /**
+    * 方法二：用栈存储链表，然后将将链表元素与出栈元素比较，如果不想等，返回false
+    **/
+    public boolean isPail1(ListNode head) {
+        if(head == null || head.next == null) {
+            return true;
+        }
+        Stack<ListNode> stack = new Stack<>();
+        ListNode index = head;
+        while(index != null) {
+            stack.add(index);
+            index = index.next;
+        }
+        index = head;
+        while(index != null) {
+            if(index.val != stack.pop()) {
+                return false;
+            }
+            index = index.next;
+        }
+        return true;
+    }
 
     /**
      * 对链表进行插入排序

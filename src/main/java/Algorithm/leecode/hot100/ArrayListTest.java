@@ -513,6 +513,32 @@ public class ArrayListTest {
     }
 
     /**
+    * 方法二：先排序，后遍历数组，判断最长连续子序列长度
+    **/
+    public int longestConsecutive1(int [] nums) {
+        if(nums == null || nums.length == 0) {
+            return 0;
+        }
+        if(nums.length == 1) {
+            return 1;
+        }
+        Arrays.sort(nums);
+        int maxLength = 1;
+        int len = 1;
+        for(int i = 1;i<nums.length;i++) {
+            if(nums[i] == nums[i-1]) {
+                continue;
+            } else if(nums[i] == nums[i-1]+1) {
+                len++;
+            } else {
+                len = 1;
+            }
+            maxLength = Math.max(maxLength,len);
+        }
+        return maxLength;
+    }
+
+    /**
      * 最长递增子序列
      * 给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
      * 子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。

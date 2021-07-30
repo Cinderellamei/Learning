@@ -760,5 +760,60 @@ public class ArrayTest {
         }
         return maxSum;
     }
+
+    public static int test(int [] array,int k) {
+        int n = array.length;
+        if(n == 0 || array[0]>k || array[n-1]<k) {
+            return -1;
+        }
+        int start = findFirstPosition(array,k,0,n-1);
+        int end = findLastPosition(array,k,0,n-1);
+        if(start >-1 && end >= -1) {
+            return end-start+1;
+        } else {
+            return -1;
+        }
+    }
+
+    public static int findFirstPosition(int [] array,int k,int start,int end) {
+        while(start < end) {
+            int mid = (start+end)/2;
+            if(array[mid] == k) {
+                if(mid == 0 || array[mid-1] != k) {
+                    return mid;
+                } else {
+                    end = mid-1;
+                }
+            } else if(array[mid]>k) {
+                end = mid-1;
+            } else if(array[mid]<k) {
+                start = mid+1;
+            }
+        }
+        return -1;
+    }
+
+    public static int findLastPosition(int [] array,int k,int start,int end) {
+        while(start<end) {
+            int mid = (start+end)/2;
+            if(array[mid] == k) {
+                if(mid == array.length-1 || array[mid] != array[mid+1]) {
+                    return mid;
+                } else {
+                    start = mid+1;
+                }
+            } else if(array[mid] > k) {
+                end = mid-1;
+            } else if(array[mid] < k) {
+                start = mid+1;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String [] args) {
+        int [] array = {1,2,3,3,3,3,4,5};
+        System.out.println(test(array,3));
+    }
 }
 

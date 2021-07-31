@@ -258,7 +258,7 @@ public class ListNodeTest {
         }
         index = head;
         while(index != null) {
-            if(index.val != stack.pop()) {
+            if(index.val != stack.pop().val) {
                 return false;
             }
             index = index.next;

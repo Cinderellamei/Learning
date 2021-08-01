@@ -1,5 +1,6 @@
 package Algorithm.leecode.bytedance;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -161,6 +162,29 @@ public class IntegerTest {
             }
         }
         return new int[]{x,y};
+    }
+
+    /**
+     * 数组中数字出现的次数II
+     * 在一个数组 nums 中除一个数字只出现一次之外，其他数字都出现了三次。请找出那个只出现一次的数字。
+     * 思路：巧妙的方法：先对数组排序，这个只出现一次的数字位置有三种情况，第一种是在数组第一个元素，第二种是数组最后一个元素，第三种是在数组中间
+     * 针对第一种情况和第二种情况，if语句判断就可以了，第三种情况，可以用for循环遍历，如果一个元素与左右两边元素都不相等，说明就是只出现一次的数字
+     */
+    public static int singleNumber(int [] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
+        if(nums[0] != nums[1]) {
+            return nums[0];
+        }
+        if(nums[n-1] != nums[n-2]) {
+            return nums[n-1];
+        }
+        for(int i =1;i<n-1;i++) {
+            if(nums[i] != nums[i-1] && nums[i] != nums[i+1]) {
+                return nums[i];
+            }
+        }
+        return 0;
     }
 
 }

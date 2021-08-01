@@ -16,41 +16,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/shangguigu/Thread/MyThreadPoolDemo.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/ArrayTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="-10771">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thread/MyThread.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/IntegerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-              <folding>
-                <element signature="e#673#674#0" expanded="true" />
-                <element signature="e#711#712#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thread/MyThread2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thread/MyThread3.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+            <state relative-caret-position="479">
+              <caret line="184" column="5" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,34 +37,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/ArrayTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="765" lean-forward="true" selection-start-line="765" selection-end-line="765" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="170" column="5" lean-forward="true" selection-start-line="170" selection-start-column="5" selection-end-line="170" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/String.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="659" selection-start-line="659" selection-end-line="659" />
-              <folding>
-                <element signature="e#22786#22787#0" expanded="true" />
-                <element signature="e#22821#22822#0" expanded="true" />
-                <element signature="e#118405#118406#0" expanded="true" />
-                <element signature="e#118444#118445#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="389">
+              <caret line="163" column="30" lean-forward="true" selection-start-line="163" selection-start-column="30" selection-end-line="163" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -94,29 +48,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="561" column="5" lean-forward="true" selection-start-line="561" selection-start-column="5" selection-end-line="561" selection-end-column="5" />
+            <state relative-caret-position="374">
+              <caret line="554" column="20" lean-forward="true" selection-start-line="554" selection-start-column="20" selection-end-line="554" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/Integer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/util/concurrent/FutureTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="187" column="13" selection-start-line="187" selection-start-column="13" selection-end-line="187" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -160,6 +96,7 @@
       <find>奇数</find>
       <find>合并</find>
       <find>合并有序数组</find>
+      <find>次数</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,20 +142,20 @@
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/DNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/CQueue.java" />
         <option value="$PROJECT_DIR$/src/main/java/classLoader/ClassLoaderTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/tree/TreeNodeTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/IntegerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/StringTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/LinkedListTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/hot100/ArrayListTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/TreeNodeTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/IntegerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/ListNodeTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/thread/MyThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/thread/MyThread2.java" />
         <option value="$PROJECT_DIR$/src/main/java/thread/MyThread3.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/ArrayTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/IntegerTest.java" />
       </list>
     </option>
   </component>
@@ -359,7 +296,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StringTest (1)">
+  <component name="RunManager" selected="Application.IntegerTest">
     <configuration name="ArrayTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Algorithm.ArrayTest" />
       <module name="learning" />
@@ -388,12 +325,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="thread.MyThread" />
+    <configuration name="IntegerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithm.leecode.bytedance.IntegerTest" />
       <module name="learning" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="thread.*" />
+          <option name="PATTERN" value="Algorithm.leecode.bytedance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -444,18 +381,18 @@
       <item itemvalue="Application.GCOverHeadDemo" />
       <item itemvalue="Application.GoneDemo" />
       <item itemvalue="Application.ArrayTest (1)" />
-      <item itemvalue="Application.MyThread" />
       <item itemvalue="Application.MyThread2" />
       <item itemvalue="Application.MyThread3" />
       <item itemvalue="Application.StringTest (1)" />
+      <item itemvalue="Application.IntegerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.IntegerTest" />
         <item itemvalue="Application.StringTest (1)" />
         <item itemvalue="Application.ArrayTest (1)" />
         <item itemvalue="Application.MyThread3" />
         <item itemvalue="Application.MyThread2" />
-        <item itemvalue="Application.MyThread" />
       </list>
     </recent_temporary>
   </component>
@@ -489,7 +426,7 @@
       <workItem from="1623124157059" duration="313000" />
       <workItem from="1623124992486" duration="16927000" />
       <workItem from="1623896165967" duration="107768000" />
-      <workItem from="1625627775826" duration="103608000" />
+      <workItem from="1625627775826" duration="104510000" />
     </task>
     <servers />
   </component>
@@ -502,7 +439,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="514129000" />
+    <option name="totallyTimeSpent" value="515031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -813,16 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/IntegerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/tree/TreeNodeTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7336">
@@ -871,13 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/shangguigu/Thread/MyThreadPoolDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/ListNodeTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -885,17 +805,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6860">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3520">
+          <caret line="659" selection-start-line="659" selection-end-line="659" />
+          <folding>
+            <element signature="e#22786#22787#0" expanded="true" />
+            <element signature="e#22821#22822#0" expanded="true" />
+            <element signature="e#118405#118406#0" expanded="true" />
+            <element signature="e#118444#118445#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/util/concurrent/FutureTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="-1726">
           <caret line="187" column="13" selection-start-line="187" selection-start-column="13" selection-end-line="187" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/Integer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+        <state relative-caret-position="374">
+          <caret line="554" column="20" lean-forward="true" selection-start-line="554" selection-start-column="20" selection-end-line="554" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="163" column="30" lean-forward="true" selection-start-line="163" selection-start-column="30" selection-end-line="163" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -910,6 +860,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/shangguigu/Thread/MyThreadPoolDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thread/MyThread2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -919,18 +876,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thread/MyThread3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="374">
           <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="561" column="5" lean-forward="true" selection-start-line="561" selection-start-column="5" selection-end-line="561" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -939,28 +886,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/ArrayTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="765" lean-forward="true" selection-start-line="765" selection-end-line="765" />
+        <state relative-caret-position="-10771">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/String.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/IntegerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="659" selection-start-line="659" selection-end-line="659" />
+        <state relative-caret-position="479">
+          <caret line="184" column="5" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
           <folding>
-            <element signature="e#22786#22787#0" expanded="true" />
-            <element signature="e#22821#22822#0" expanded="true" />
-            <element signature="e#118405#118406#0" expanded="true" />
-            <element signature="e#118444#118445#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="170" column="5" lean-forward="true" selection-start-line="170" selection-start-column="5" selection-end-line="170" selection-end-column="5" />
         </state>
       </provider>
     </entry>

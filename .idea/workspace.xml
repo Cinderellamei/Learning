@@ -24,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/IntegerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="184" column="5" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
+            <state relative-caret-position="527">
+              <caret line="190" column="5" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="163" column="30" lean-forward="true" selection-start-line="163" selection-start-column="30" selection-end-line="163" selection-end-column="30" />
+            <state relative-caret-position="434">
+              <caret line="223" column="27" lean-forward="true" selection-start-line="223" selection-start-column="27" selection-end-line="223" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="554" column="20" lean-forward="true" selection-start-line="554" selection-start-column="20" selection-end-line="554" selection-end-column="20" />
+            <state relative-caret-position="376">
+              <caret line="553" column="19" selection-start-line="553" selection-start-column="19" selection-end-line="553" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,10 +93,10 @@
       <find>镜像</find>
       <find>平衡二叉树</find>
       <find>出现一次</find>
-      <find>奇数</find>
       <find>合并</find>
       <find>合并有序数组</find>
       <find>次数</find>
+      <find>奇数</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,9 +153,9 @@
         <option value="$PROJECT_DIR$/src/main/java/thread/MyThread2.java" />
         <option value="$PROJECT_DIR$/src/main/java/thread/MyThread3.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/ArrayTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/IntegerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java" />
       </list>
     </option>
   </component>
@@ -223,6 +223,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Algorithm" type="462c0819:PsiDirectoryNode" />
               <item name="leecode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learning" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Algorithm" type="462c0819:PsiDirectoryNode" />
+              <item name="leecode" type="462c0819:PsiDirectoryNode" />
+              <item name="bytedance" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="learning" type="b2602c69:ProjectViewProjectNode" />
@@ -426,7 +436,7 @@
       <workItem from="1623124157059" duration="313000" />
       <workItem from="1623124992486" duration="16927000" />
       <workItem from="1623896165967" duration="107768000" />
-      <workItem from="1625627775826" duration="104510000" />
+      <workItem from="1625627775826" duration="107779000" />
     </task>
     <servers />
   </component>
@@ -439,20 +449,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="515031000" />
+    <option name="totallyTimeSpent" value="518300000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33715925" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33715925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.4263285" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49354374" visible="true" weight="0.2004831" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49354374" visible="true" weight="0.2004831" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49569583" weight="0.48550725" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -832,23 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="554" column="20" lean-forward="true" selection-start-line="554" selection-start-column="20" selection-end-line="554" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="163" column="30" lean-forward="true" selection-start-line="163" selection-start-column="30" selection-end-line="163" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thread/MyThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -893,11 +886,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/IntegerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="184" column="5" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
+        <state relative-caret-position="527">
+          <caret line="190" column="5" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/leecode/bytedance/ArrayTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="553" column="19" selection-start-line="553" selection-start-column="19" selection-end-line="553" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithm/StringTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="223" column="27" lean-forward="true" selection-start-line="223" selection-start-column="27" selection-end-line="223" selection-end-column="27" />
         </state>
       </provider>
     </entry>

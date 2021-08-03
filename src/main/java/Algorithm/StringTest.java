@@ -169,4 +169,61 @@ public class StringTest {
         }
         return new String(arr);
     }
+
+    /**
+     * 字符串中第一个唯一字符
+     * 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
+     *
+     * 方法一：使用hash表存储字符出现的次数，对字符串进行两次遍历，第一次记录字符及出现次数，第二次遍历，碰到第一个出现次数为1的字符就返回
+     * 缺点：空间复杂度较高
+     */
+    public static int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(int i = 0;i<s.length();i++) {
+            char ch = s.charAt(i);
+            if(map.containsKey(ch)) {
+                map.put(ch,map.get(ch)+1);
+            } else {
+                map.put(ch,1);
+            }
+        }
+
+        for(int i = 0;i<s.length();i++) {
+            char ch = s.charAt(i);
+            if(map.get(ch) == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 方法二：hash表中存放字符的索引，第一次出现放索引，第二次出现变为-1
+     */
+    public static int firstUniqChar1(String s) {
+        int len = s.length();
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(int i = 0;i<len;i++) {
+            char ch = s.charAt(i);
+            if(map.containsKey(ch)) {
+                map.put(ch,-1);
+            } else {
+                map.put(ch,i);
+            }
+        }
+
+        int result = len;
+        for(char num:map.keySet()) {
+            int index = map.get(num);
+            if(index != -1) {
+                if(index < result) {
+                    result = index;
+                }
+            }
+            if(result == len) {
+               result = -1;
+            }
+        }
+        return result;
+    }
 }

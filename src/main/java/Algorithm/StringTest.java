@@ -220,10 +220,27 @@ public class StringTest {
                     result = index;
                 }
             }
-            if(result == len) {
+        }
+        if(result == len) {
                result = -1;
             }
-        }
         return result;
+    }
+
+    /**
+    * 方法三：初始化一个长度为26的数组，遍历字符串，遍历到哪个字符，在数组中该字符串对应位置值加一，遍历完后，再遍历一次字符串
+    * 将值为1的下标返回（s.charAt(i）-'a'是用字符的值减去97，这样字符的值就可以和数组的下标对应了)
+    * 
+    **/
+    public int firstUniqChar2(String s) {
+        int[] array = new int[26];
+        for(int i = 0; i < s.length(); i++) {
+            array[s.charAt(i) - 'a']++;
+        }
+        for(int i = 0; i < s.length(); i++) {
+            if(array[s.charAt(i) - 'a'] == 1)
+                return i;
+        }
+        return -1;
     }
 }

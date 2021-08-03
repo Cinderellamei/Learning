@@ -561,5 +561,35 @@ public class ArrayTest {
         return p+1;
     }
 
+    /**
+    * 数组中第k大的数
+    * 方法一：使用优先队列，建立小顶堆（双端队列默认是小顶堆）
+    **/
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k);
+        for(int i = 0;i<nums.length;i++) {
+            queue.add(nums[i]);
+            if(queue.size()>k) {
+                queue.poll();
+            }
+        }
+        return queue.peek();
+    }
 
+    /**
+    * 方法二：排序算法
+    * 缺点：时间复杂度高
+    **/
+    public int findKthLargest1(int[] nums, int k) {
+        for(int i = 0;i<k;i++) {
+            for(int j = 0;j<nums.length-i-1;j++) {
+                if(nums[j]>nums[j+1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = temp;
+                }
+            }
+        }
+        return nums[nums.length-k];
+    }
 }

@@ -69,9 +69,8 @@ public class StringTest {
      * 请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。
      * 思路:双指针+哈希表
      *
-     * 哈希表 dicdic 统计： 指针 jj 遍历字符 ss ，哈希表统计字符 s[j]s[j] 最后一次出现的索引 。
-     * 更新左指针 ii ： 根据上轮左指针 ii 和 dic[s[j]]dic[s[j]] ，每轮更新左边界 ii ，保证区间 [i + 1, j][i+1,j] 内无重复字符且最大。
-     * i = \max(dic[s[j]], i)
+     * 哈希表dic统计： 指针j遍历字符s，哈希表统计字符s[j]最后一次出现的索引 。
+     * 更新左指针i： 根据上轮左指针i 和dic[s[j]]，每轮更新左边界i,保证区间[i+1,j]内无重复字符且最大。
      * i=max(dic[s[j]],i)
      */
     public static int lengthOfLongestSubString(String s) {
@@ -87,6 +86,33 @@ public class StringTest {
             result = Math.max(result,j-i);
         }
         return result;
+    }
+
+    /**
+    * 方法二：滑动窗口,窗口内是不重复的子串，如果加入右边元素后不满足要求，则将左边窗口向右收缩，若加入右边元素后满足要求，则继续将
+    * 右边窗口向右扩张
+    **/
+    public static int lengthOfLongestSubStrings(String s) {
+        int n = s.length();
+        if(n <= 1) {
+            return n;
+        }
+        
+        int left = 0;
+        int right = 0;
+        int maxLength = 1;
+        Set<Character> set = new HashSet<>();
+        
+        while(right < n) {
+            while(set.contains(s.charAt(right))) {
+                set.remove(s.charAt(left));
+                left++; 
+            }
+            maxLength = Math.max(maxLength,right-left+1);
+            set.add(s.charAt(right));
+            right++;
+        }
+        return maxLength;
     }
 
     /**

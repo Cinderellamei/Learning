@@ -514,7 +514,7 @@ public class ArrayTest {
      */
     public int findKthLargest(int [] nums,int k) {
         int len = nums.length;
-        PriorityQueue<Integer> queue = new PriorityQueue<>(k+1);
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k);
         for(int i = 0;i<len;i++) {
             queue.add(nums[i]);
             if(queue.size()>k) {
@@ -569,6 +569,22 @@ public class ArrayTest {
         }
         arr[left] = key;
         return left;
+    }
+
+    /**
+     * 方法四：冒泡排序
+     */
+    public int findKthLargest3(int[] nums, int k) {
+        for(int i = 0;i<k;i++) {
+            for(int j = 0;j<nums.length-i-1;j++) {
+                if(nums[j]>nums[j+1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = temp;
+                }
+            }
+        }
+        return nums[nums.length-k];
     }
 
     /**

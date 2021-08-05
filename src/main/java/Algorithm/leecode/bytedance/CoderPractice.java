@@ -283,6 +283,34 @@ public class CoderPractice {
     }
 
     /**
+     * 合并两个有序链表
+     */
+    public ListNode mergeTwoLists(ListNode l1,ListNode l2) {
+        if(l1 == null) {
+            return l1;
+        }
+        if(l2 == null) {
+            return l1;
+        }
+        ListNode newHead = null;
+        if(l1.val <=l2.val) {
+            newHead = l1;
+            newHead.next = mergeTwoLists(l1.next,l2);
+        } else if(l1.val >l2.val){
+            newHead = l2;
+            newHead.next = mergeTwoLists(l1,l2.next);
+        }
+        return newHead;
+    }
+
+    /**
+     * 环形链表
+     *
+     * 给定一个链表，判断链表中是否有环。
+     */
+
+
+    /**
     * 买卖股票的最佳时机
     * 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
     * 你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
@@ -290,9 +318,9 @@ public class CoderPractice {
     **/
     public int maxProfit(int [] prices) {
         int maxProfit = 0;
-        int minPricecs = prices[0];
+        int minPrices = prices[0];
         for(int i = 1;i<prices.length;i++) {
-            if(prices[i] < minProfit) {
+            if(prices[i] < minPrices) {
                 maxProfit = prices[i];
             }
             if(prices[i]-minPrices > maxProfit) {
@@ -300,5 +328,182 @@ public class CoderPractice {
             }
         }
         return maxProfit;
-    } 
+    }
+
+    /**
+     * 二叉树的层次遍历
+     *
+     * 给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点
+     */
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        if(root == null) {
+            return result;
+        }
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            ArrayList<Integer> path = new ArrayList<>();
+            int size = queue.size();
+            for(int i = 0;i<size;i++) {
+                TreeNode node = queue.poll();
+                path.add(node.val);
+                if(node.left != null) {
+                    queue.add(node.left);
+                }
+                if(node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            result.add(path);
+        }
+        return result;
+    }
+
+    /**
+     * 二叉树的锯型层次遍历
+     */
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if(root == null) {
+            return result;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        boolean isOrderLeft = true;
+        while(!queue.isEmpty()) {
+            Deque<Integer> path = new LinkedList<>();
+            int size = queue.size();
+            for(int i = 0;i<size;i++) {
+                TreeNode temp = queue.poll();
+                if(isOrderLeft) {
+                    path.addLast(temp.val);
+                } else {
+                    path.addFirst(temp.val);
+                }
+                if(temp.left != null) {
+                    queue.add(temp.left);
+                }
+                if(temp.right != null) {
+                    queue.add(temp.right);
+                }
+            }
+            result.add(new ArrayList<>(path));
+            isOrderLeft = !isOrderLeft;
+        }
+        return  result;
+    }
+
+    /**
+     * 字符串相加
+     * 给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。
+     */
+    public String addStrings(String nums1,String nums2) {
+
+    }
+
+    /**
+     * 合并两个有序的数组
+     *
+     * 给你两个有序整数数组 nums1 和 nums2，请你将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组
+     * 初始化nums1和nums2的元素数量分别为m和n。你可以假设nums1的空间大小等于m+n，这样它就有足够的空间保存来自nums2的元素。
+     */
+    public void merge(int [] nums1,int m,int [] nums2,int n) {
+
+    }
+
+    /**
+     *  二叉树的最近公共祖先
+     */
+    public TreeNode lowestCommonAncestor(TreeNode root,TreeNode p,TreeNode q) {
+        if(root == null || root == p || root == q){
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left,p,q);
+        TreeNode right = lowestCommonAncestor(root.right,p,q);
+        if(left == null && right == null) {
+            return null;
+        }
+        if(left == null) {
+            return right;
+        }
+        if(right == null) {
+            return left;
+        }
+        return root;
+    }
+
+    /**
+     * 有效的括号
+     * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+     *
+     * 有效字符串需满足：
+     * 左括号必须用相同类型的右括号闭合。
+     * 左括号必须以正确的顺序闭合
+     */
+
+    /**
+     * 环形链表II
+     *
+     * 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
+     */
+    public ListNode detectCycle(ListNode head) {
+        if(head == null || head.next == null) {
+            return null;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) {
+                fast = head;
+                while(fast != slow) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                return slow;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 二分查找
+     *
+     * 给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，
+     * 如果目标值存在返回下标，否则返回 -1。
+     */
+    public int search(int [] nums,int target) {
+        int n = nums.length;
+        if(nums[0]>target || nums[n-1]<target) {
+            return -1;
+        }
+        int left = 0;
+        int right = n-1;
+        while(left <= right) {
+            int mid = (left+right)/2;
+            if(nums[mid] == target) {
+                return mid;
+            } else if(nums[mid]>target) {
+                right = mid-1;
+            } else if(nums[mid]<target) {
+                left = mid+1;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 搜索旋转排序矩阵
+     * 给你旋转后的数组nums和一个整数target，如果nums中存在这个目标值target，则返回它的下标，否则返回 -1
+     */
+
+    /**
+     * 二叉树的中序遍历
+     */
+
+
+
+
 }

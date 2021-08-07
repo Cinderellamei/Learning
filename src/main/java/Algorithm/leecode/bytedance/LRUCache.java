@@ -4,12 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LRUCache {
+    int size;
+    int capacity;
+    DLinkedNode head;
+    DLinkedNode tail;
     
     public class DLinkedNode{
     	int key;
     	int value;
     	DLinkedNode pre;
-    	DLinkedNOde next;
+    	DLinkedNode next;
     	public DLinkedNode(){}
     	public DLinkedNode(int key,int value) {
     		this.key = key;
@@ -32,14 +36,14 @@ public class LRUCache {
     	if(node == null) {
     		return -1;
     	} else {
-    		return node.val;
+    		return node.value;
     	}
     }
 
     public void put(int key,int value) {
-    	DLinkedNode node = cache.get(key) {
+    	DLinkedNode node = cache.get(key);
     		if(node == null) {
-    			DLinkedNode tempNode = new DLinkedNode(value);
+    			DLinkedNode tempNode = new DLinkedNode(key,value);
     			cache.put(key,tempNode);
     			addToHead(tempNode);
     			size++;
@@ -53,7 +57,6 @@ public class LRUCache {
     			moveToHead(node);
     		}
     	}
-    }
 
     private void addToHead(DLinkedNode node) {
     	node.next = head.next;

@@ -368,7 +368,7 @@ public class ArrayListTest {
             List<List<Integer>> result = new ArrayList<>();
             int length = nums.length;
             if(nums == null || length <3) {
-                return result;w
+                return result;
             }
             Arrays.sort(nums);
             for(int i = 0;i<length;i++) {

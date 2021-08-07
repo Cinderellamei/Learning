@@ -399,7 +399,24 @@ public class CoderPractice {
      * 给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。
      */
     public String addStrings(String nums1,String nums2) {
-
+        int i = nums1.length()-1;
+        int j = nums2.length()-1;
+        int carry = 0;
+        StringBuffer sb = new StringBuffer();
+        while(i>=0 || j>=0) {
+            int x = i>=0?nums1.charAt(i)-'0':0;
+            int y = j>=0?nums2.charAt(j)-'0':0;
+            int sum = x+y+carry;
+            i--;
+            j--;
+            carry = sum/10;
+            sb.append(sum%10);
+        }
+        if(carry >1) {
+            sb.append(carry);
+        }
+        sb.reverse();
+        return sb.toString();
     }
 
     /**
@@ -441,6 +458,26 @@ public class CoderPractice {
      * 左括号必须用相同类型的右括号闭合。
      * 左括号必须以正确的顺序闭合
      */
+    public boolean isValid(String s) {
+        Map<Character,Character> map = new HashMap<>();
+        map.put('}','{');
+        map.put(']','[');
+        map.put(')','(');
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0;i<s.length();i++) {
+            char ch = s.charAt(i);
+            if(map.containsKey(ch)) {
+                if(stack.isEmpty() || !stack.peek().equals(map.get(ch))) {
+                    return false;
+                } else {
+                    stack.pop();
+                }
+            } else {
+                stack.push(ch);
+            }
+        }
+        return stack.isEmpty();
+    }
 
     /**
      * 环形链表II
@@ -498,12 +535,150 @@ public class CoderPractice {
      * 搜索旋转排序矩阵
      * 给你旋转后的数组nums和一个整数target，如果nums中存在这个目标值target，则返回它的下标，否则返回 -1
      */
+    public int searchs(int [] nums,int target) {
+        int n = nums.length;
+        if(n == 0) {
+            return -1;
+        }
+        if(n == 1) {
+            return nums[0] == target?0:-1;
+        }
+
+        int left = 0;
+        int right = n-1;
+        while(left <= right) {
+            int mid = (left+right)/2;
+            if(nums[mid] == target) {
+                return mid;
+            }
+            if(nums[0]<nums[mid]) {
+                if(nums[0]<=target && target<nums[mid]) {
+                    right = mid-1;
+                } else {
+                    left = mid+1;
+                }
+            } else if(nums[mid]<nums[right]) {
+                if(nums[mid]<target && target<=nums[right]) {
+                    left = mid+1;
+                } else {
+                    right = mid-1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 岛屿的数量
+     */
+
 
     /**
      * 二叉树的中序遍历
      */
 
+    /**
+     * 多数元素
+     */
+    public int majorityElement(int [] nums) {
+        Integer candidate = null;
+        int count = 0;
+        for(int num:nums) {
+            if(count == 0) {
+                candidate = num;
+            }
+            count += (num==candidate)?1:-1;
+        }
+        return candidate;
+    }
+
+    /**
+     * 最长公共前缀
+     *
+     * 编写一个函数来查找字符串数组中的最长公共前缀。
+     * 如果不存在公共前缀，返回空字符串 ""。
+     */
+
+    /**
+     * 搜索二维矩阵
+     */
+    public boolean searchMatrix(int [][] matrix,int target) {
+        int row = matrix.length;
+        int col = matrix[0].length;
+        int i = 0;
+        int j = col-1;
+        while(i<row && j>=0) {
+            if(matrix[i][j] == target) {
+                return true;
+            } else if(matrix[i][j]<target) {
+                i++;
+            } else if(matrix[i][j]>target) {
+                j--;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 合并区间
+     *
+     * 以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，
+     * 并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
+     */
+    public int [][] merge(int [][] intervals) {
+        if(intervals == null) {
+            return new int[0][];
+        }
+        Arrays.sort(intervals,(v1,v2)->v1[0]-v2[0]);
+        ArrayList<int []> merged = new ArrayList<>();
+        for(int i = 0;i<intervals.length;i++) {
+            int left = intervals[i][0];
+            int right = intervals[i][1];
+            if(merged.size() == 0 || merged.get(merged.size()-1)[1]<left) {
+                merged.add(new int[]{left,right});
+            } else {
+                merged.get(merged.size()-1)[1] = Math.max(merged.get(merged.size()-1)[1],right);
+            }
+        }
+        return merged.toArray(new int[merged.size()][2]);
+    }
+
+    /**
+     * 最长公共子序列
+     *
+     * 给定两个字符串 text1 和 text2，返回这两个字符串的最长公共子序列的长度。如果不存在公共子序列 ，返回 0 。
+     * 一个字符串的子序列是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成
+     * 的新字符串。
+     */
 
 
+    /**
+     * 最长重复子数组
+     *
+     * 给两个整数数组 A 和 B ，返回两个数组中公共的、长度最长的子数组的长度。
+     */
+
+    /**
+     * 翻转字符串里的单词
+     *
+     * 给你一个字符串 s ，逐个翻转字符串中的所有 单词 。
+     * 单词 是由非空格字符组成的字符串。s 中使用至少一个空格将字符串中的 单词 分隔开。
+     * 请你返回一个翻转 s 中单词顺序并用单个空格相连的字符串。
+     */
+
+    /**
+     * 缺失的数字
+     *
+     * 给定一个包含 [0, n] 中 n 个数的数组 nums ，找出 [0, n] 这个范围内没有出现在数组中的那个数。
+     */
+    public int missingNumber(int [] nums) {
+        int n = nums.length;
+        int count = n*(n+1)/2;
+        int result = 1;
+        for(int i = 0;i<n;i++) {
+            result += nums[i];
+        }
+        return count-result;
+    }
 
 }

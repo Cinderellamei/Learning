@@ -560,4 +560,42 @@ public class ArrayTest {
         }
         return p+1;
     }
+
+    /**
+     * 岛屿的最大面积
+     *
+     * 给定一个包含了一些0和1的非空二维数组 grid 。
+     * 一个岛屿是由一些相邻的1(代表土地)构成的组合，这里的「相邻」要求两个1必须在水平或者竖直方向上相邻。你可以假设grid的四个边缘都被0（代表水）包围着。
+     * 找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为 0 。)
+     */
+    public int maxAreaOfIsland(int[][] grid) {
+        int result = 0;
+        for(int i = 0;i<grid.length;i++) {
+            for(int j = 0;j<grid[i].length;j++) {
+                if(grid[i][j] == 1) {
+                    result = Math.max(result,dfs(i,j,grid));
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 每次调用默认num是1，进入后判断，如果不是岛屿，则直接返回0，
+     * 每次找到岛屿，先直接把岛屿改为0，即沉岛思想，每次碰到岛屿，将岛屿和周围的都沉没，避免再次被遍历到
+     */
+    public int dfs(int i,int j,int [][] grid) {
+        if(i<0 || j<0 || i>=grid.length || j>=grid[i].length || grid[i][j] == 0) {
+            return 0;
+        }
+        int num = 1;
+        grid[i][j] = 0;
+        num += dfs(i+1,j,grid);
+        num += dfs(i,j+1,grid);
+        num += dfs(i-1,j,grid);
+        num += dfs(i,j-1,grid);
+        return num;
+    }
+
+
 }

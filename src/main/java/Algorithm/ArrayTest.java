@@ -54,7 +54,7 @@ public class ArrayTest {
     例如，如果输入如下4 X 4矩阵： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.
      */
     public static ArrayList printMatrix(int [][] matrix) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
         if(matrix == null || matrix.length == 0) {
             return result;
         }
@@ -64,7 +64,7 @@ public class ArrayTest {
 
     public static void print(int [][] matrix,int startRow,int startCol,int endRow,int endCol,ArrayList<Integer> result) {
         if(startRow<endRow && startCol<endCol) {
-            for(int j = startCol;j<=endRow-1;j++) {
+            for(int j = startCol;j<=endCol-1;j++) {
                 result.add(matrix[startRow][j]);
             }
             for(int i = startRow;i<=endRow-1;i++) {
@@ -99,7 +99,7 @@ public class ArrayTest {
     输出该数字（缺点：需要hashMap存储，占用存储空间较大）
      */
     public static int moreThanHalf(int [] array) {
-        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+        HashMap<Integer,Integer> map = new HashMap<>();
         for(int i = 0;i<array.length;i++) {
             if(map.containsKey(array[i])) {
                 map.put(array[i],map.get(array[i])+1);
@@ -119,7 +119,7 @@ public class ArrayTest {
     //改进：每次更新值之后判断当前数字出现的次数是否大于数组长度的一半，不再遍历一次map
     public class Solution {
         public int MoreThanHalfNum_Solution(int [] array) {
-            HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+            HashMap<Integer,Integer> map = new HashMap<>();
             for(int i = 0;i<array.length;i++) {
                 if(map.containsKey(array[i])) {
                     map.put(array[i],map.get(array[i])+1);
@@ -213,7 +213,9 @@ public class ArrayTest {
     /*
     把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。
     思路：习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。
-    首先从丑数的定义我们知道，一个丑数的因子只有2,3,5，那么丑数p = 2 ^ x * 3 ^ y * 5 ^ z，换句话说一个丑数一定由另一个丑数乘以2或者乘以3或者乘以5得到，那么我们从1开始乘以2,3,5，就得到2,3,5三个丑数，在从这三个丑数出发乘以2,3,5就得到4，6,10,6，9,15,10,15,25九个丑数，我们发现这种方***得到重复的丑数，而且我们题目要求第N个丑数，这样的方法得到的丑数也是无序的。那么我们可以维护三个队列：
+    首先从丑数的定义我们知道，一个丑数的因子只有2,3,5，那么丑数p = 2 ^ x * 3 ^ y * 5 ^ z，换句话说一个丑数一定由另一个丑数乘以2或者
+    乘以3或者乘以5得到，那么我们从1开始乘以2,3,5，就得到2,3,5三个丑数，在从这三个丑数出发乘以2,3,5就得到4，6,10,6，9,15,10,15,25九个丑数，
+    我们发现这种方***得到重复的丑数，而且我们题目要求第N个丑数，这样的方法得到的丑数也是无序的。那么我们可以维护三个队列：
 （1）丑数数组： 1
 乘以2的队列：2
 乘以3的队列：3
@@ -242,7 +244,8 @@ public class ArrayTest {
 ……………………
 疑问：
 1.为什么分三个队列？
-丑数数组里的数一定是有序的，因为我们是从丑数数组里的数乘以2,3,5选出的最小数，一定比以前未乘以2,3,5大，同时对于三个队列内部，按先后顺序乘以2,3,5分别放入，所以同一个队列内部也是有序的；
+丑数数组里的数一定是有序的，因为我们是从丑数数组里的数乘以2,3,5选出的最小数，一定比以前未乘以2,3,5大，同时对于三个队列内部，按先后顺序
+乘以2,3,5分别放入，所以同一个队列内部也是有序的；
 2.为什么比较三个队列头部最小的数放入丑数数组？
 因为三个队列是有序的，所以取出三个头中最小的，等同于找到了三个队列所有数中最小的。
 实现思路：
@@ -267,6 +270,22 @@ public class ArrayTest {
             result[++count] = temp;
         }
         return result[index-1];
+    }
+
+    /**
+     * 判断一个数是不是丑数
+     */
+    public boolean isUgly(int n) {
+        if(n<=0) {
+            return false;
+        }
+        int [] factors = {2,3,4};
+        for(int factor:factors) {
+            while(n%factor == 0) {
+                n/=factor;
+            }
+        }
+        return n == 1;
     }
 
     public static int min(int a,int b) {
@@ -405,24 +424,24 @@ public class ArrayTest {
         }
     }
 
-    /*
-    输出所有和为S的连续正数序列。序列内按照从小至大的顺序，序列间按照开始数字从小到大的顺序
-    思路：采用滑动窗口的方法，1。什么是滑动窗口？顾名思义，首先是一个窗口，既然是一个窗口，就需要用窗口的左边界i和右边界j来唯一表示一个窗口，
-    其次，滑动代表，窗口始终从左往右移动，这也表明左边界i和右边界j始终会往后移动，而不会往左移动
-    滑动窗口的操作
-    扩大窗口，j += 1
-    缩小窗口，i += 1
-    算法步骤：
-    初始化，i=1,j=1, 表示窗口大小为0
-    如果窗口中值的和小于目标值sum， 表示需要扩大窗口，j += 1
-    否则，如果狂口值和大于目标值sum，表示需要缩小窗口，i += 1
-    否则，等于目标值，存结果，缩小窗口，继续进行步骤2,3,4
+    /**
+     * 输出所有和为S的连续正数序列。序列内按照从小至大的顺序，序列间按照开始数字从小到大的顺序
+     * 思路：采用滑动窗口的方法，1。什么是滑动窗口？顾名思义，首先是一个窗口，既然是一个窗口，就需要用窗口的左边界i和右边界j来唯一表示一个窗口，
+     * 其次，滑动代表，窗口始终从左往右移动，这也表明左边界i和右边界j始终会往后移动，而不会往左移动
+     * 滑动窗口的操作
+     * 扩大窗口，j += 1
+     * 缩小窗口，i += 1
+     * 算法步骤：
+     * 初始化，i=1,j=1, 表示窗口大小为0
+     * 如果窗口中值的和小于目标值sum， 表示需要扩大窗口，j += 1
+     * 否则，如果狂口值和大于目标值sum，表示需要缩小窗口，i += 1
+     * 否则，等于目标值，存结果，缩小窗口，继续进行步骤2,3,4
 
-    这里需要注意2个问题：
-    什么时候窗口终止呢，这里窗口左边界走到sum的一半即可终止，因为题目要求至少包含2个数
-    什么时候需要扩大窗口和缩小窗口？解释可看上述算法步骤。
-    注意：每次扩大滑窗时是先计算滑窗内的和temp，然后++r，所以右边界r在滑窗的外面，
-     */
+     * 这里需要注意2个问题：
+     * 什么时候窗口终止呢，这里窗口左边界走到sum的一半即可终止，因为题目要求至少包含2个数
+     * 什么时候需要扩大窗口和缩小窗口？解释可看上述算法步骤。
+     * 注意：每次扩大滑窗时是先计算滑窗内的和temp，然后++r，所以右边界r在滑窗的外面，
+     **/
     public static ArrayList<ArrayList<Integer>> findContinusSequence(int sum) {
         ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
         int left = 1;
@@ -448,11 +467,11 @@ public class ArrayTest {
         return list;
     }
 
-    /*
-    输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。
-    对应每个测试案例，输出两个数，小的先输出。
-    思路：若为无序数组，可用HashMap，考虑到是有序数组，可以采用双指针
-     */
+    /**
+     * 输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。
+     * 对应每个测试案例，输出两个数，小的先输出。
+     * 思路：若为无序数组，可用HashMap，考虑到是有序数组，可以采用双指针
+     **/
     public static ArrayList<Integer> findNumbersWithSum(int [] array,int sum) {
         ArrayList<Integer> result = new ArrayList<>();
         int i = 0;
@@ -478,13 +497,13 @@ public class ArrayTest {
         return result;
     }
 
-    /*
-   题目抽象：给定一个长度为5（排除空vector），包含0-13的数组，判断公差是否为1.（请从输入的一个数组中判断能否构成5个一连的顺子，
-   输入的数范围为0-13的整数，其中0可以表示1~13的任意整数。若能构成顺子，返回true，否则返回false。）
-   思路：TreeSet是有序的，且不能存储重复的值
-   简单来说就是要是5个数字，最大和最小差值在5以内，并且没有重复数值。用一个set来填充数据，0不要放进去。
-   set的大小加上0的个数必须为5个。此外set中数值差值在5以内。
-    */
+    /**
+     * 题目抽象：给定一个长度为5（排除空vector），包含0-13的数组，判断公差是否为1.（请从输入的一个数组中判断能否构成5个一连的顺子，
+     * 输入的数范围为0-13的整数，其中0可以表示1~13的任意整数。若能构成顺子，返回true，否则返回false。）
+     * 思路：TreeSet是有序的，且不能存储重复的值
+     * 简单来说就是要是5个数字，最大和最小差值在5以内，并且没有重复数值。用一个set来填充数据，0不要放进去。
+     * set的大小加上0的个数必须为5个。此外set中数值差值在5以内。
+    **/
     public static boolean isContinuous(int [] numbers) {
         if(numbers.length != 5) return false;
         int num = 0;
@@ -775,6 +794,88 @@ public class ArrayTest {
             maxSum = Math.max(maxSum,total);
         }
         return maxSum;
+    }
+
+    /**
+     * 一个拥有重复数字的数组，找到该数组中，第一个没有重复的元素，并返回其下标
+     * 思路：使用hashMap存储元素和元素出现的次数，两次遍历，第二次遍历只要碰到map中值为1的元素就返回
+     */
+    public static int firstOnRepeatNumber(int [] nums) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int i = 0;i<nums.length;i++) {
+            if(map.containsKey(nums[i])) {
+                map.put(nums[i],map.get(nums[i])+1);
+            } else {
+                map.put(nums[i],1);
+            }
+        }
+
+        for(int i = 0;i<nums.length;i++) {
+            if(map.get(nums[i]) == 1) {
+                return nums[i];
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找长字符串在短字符串中出现的次数，如果没有出现，则返回0，出现了返回次数
+     */
+    public static int containsStr(String longStr,String shortStr) {
+        int length = longStr.length()-shortStr.length()+1;
+        int count =0;
+        for(int i = 0;i<length;i++) {
+            if(longStr.charAt(i) == (shortStr.charAt(0))) {
+                int x = i;
+                int y = 0;
+                while(longStr.charAt(x) == shortStr.charAt(y) && y<shortStr.length()-1) {
+                    x++;
+                    y++;
+                }
+                if(y == shortStr.length()-1) {
+                    count+=1;
+                }
+            }
+        }
+        return count;
+    }
+
+    /**
+     * 前K个高频元素
+     */
+    public int[] topKFrequent(int[] nums, int k) {
+        int [] result = new int[k];
+        HashMap<Integer,Integer> map = new HashMap<>();
+
+        for(int num:nums) {
+            if(map.containsKey(num)) {
+                map.put(num,map.get(num)+1);
+            } else {
+                map.put(num,1);
+            }
+        }
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return map.get(o1)-map.get(o2);
+            }
+        });
+
+        for(int key:map.keySet()) {
+            if(queue.size()<k) {
+                queue.add(key);
+            } else if(map.get(key)>map.get(queue.peek())) {
+                queue.poll();
+                queue.add(key);
+            }
+        }
+
+        while(!queue.isEmpty()) {
+            result[--k] = queue.poll();
+        }
+        return result;
+
     }
 
 }

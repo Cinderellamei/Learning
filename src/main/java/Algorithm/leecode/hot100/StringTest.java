@@ -65,9 +65,9 @@ public class StringTest {
     }
 
     /**
-     * 字符串的排列
-     * 给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
-     * 换句话说，第一个字符串的排列之一是第二个字符串的 子串 。
+     * z字符串的排列
+     * 给定两个字符串s1和s2，写一个函数来判断s2是否包含s1的排列。
+     * 换句话说，第一个字符串的排列之一是第二个字符串的子串 。
      *
      * 方法一：滑动窗口，先统计s1中字符出现次数，然后取一个长度为s1长度的滑动窗口，判断窗口内字符和次数是否与s1相同，如果不同，则窗口向右移动，
      * 加入右边字符，减去左边字符
@@ -325,6 +325,35 @@ public class StringTest {
             }
         }
         return stack.isEmpty();
+    }
+
+    /**
+     * 有效的括号字符串
+     */
+    public boolean checkValidString(String s) {
+        int low = 0;
+        int high = 0;
+        for(int i = 0;i<s.length();i++) {
+            char ch = s.charAt(i);
+            if(ch == '(') {
+                low++;
+                high++;
+            } else if(ch == ')') {
+                if(low>0) {
+                    low--;
+                }
+                high--;
+            } else if(ch == '*') {
+                if(low>0) {
+                    low--;
+                }
+                high++;
+            }
+            if(high<0) {
+                return false;
+            }
+        }
+        return low == 0;
     }
 
 

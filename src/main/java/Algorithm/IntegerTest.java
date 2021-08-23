@@ -1,12 +1,13 @@
 package Algorithm;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 public class IntegerTest {
 
-    /*
-    给定一个数base和指数exponent，求base的exponent次方
-     */
+    /**
+     * 给定一个数base和指数exponent，求base的exponent次方
+     **/
     public static double Power(double base,int exponent) {
         double result = 1;
         for(int i = 0;i<Math.abs(exponent);i++) {
@@ -40,8 +41,8 @@ public class IntegerTest {
     }
 
 
-    /*将一个字符串转化为一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0
-    * 如输入：1234567，输出为：123456，输入：1a23，输出：0*/
+    /**将一个字符串转化为一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0
+     * 如输入：1234567，输出为：123456，输入：1a23，输出：0**/
     public static int StrToInt(String str) {
         if(str == null || str.length() == 0 || str == "+" || str == "-") {
             return 0;

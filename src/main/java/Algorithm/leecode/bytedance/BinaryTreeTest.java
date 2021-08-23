@@ -107,6 +107,24 @@ public class BinaryTreeTest {
         list.add(root.val);
     }
 
+    public List<Integer> post(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if(root == null) {
+            return result;
+        }
+        postOrder(root,result);
+        return result;
+    }
+
+    public void post(TreeNode root,List<Integer> list) {
+        if(root == null) {
+            return ;
+        }
+        postOrder(root.left,list);
+        postOrder(root.right,list);
+        list.add(root.val);
+    }
+
     /**
      * 二叉树中和为某一值的路径
      */

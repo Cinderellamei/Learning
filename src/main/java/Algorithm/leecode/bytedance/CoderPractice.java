@@ -58,7 +58,7 @@ public class CoderPractice {
         int result = 0;
         int i = -1;
         for(int j = 0;j<n;j++) {
-            char ch = s.charAt(i);
+            char ch = s.charAt(j);
             if(map.containsKey(ch)) {
                 i = Math.max(i,map.get(ch));
             } else {

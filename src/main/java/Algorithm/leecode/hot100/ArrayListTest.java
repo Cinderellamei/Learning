@@ -254,7 +254,7 @@ public class ArrayListTest {
     }
 
         /**
-         * 领取兑换
+         * 零钱兑换
          * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
          *你可以认为每种硬币的数量是无限的。
          *
@@ -405,6 +405,35 @@ public class ArrayListTest {
             }
             return result;
         }
+
+    /**
+     * 最接近的三数之和
+     *
+     * 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
+     *
+     */
+    public int threeSumClosest(int [] nums,int target) {
+        Arrays.sort(nums);
+        int result = nums[0]+nums[1]+nums[2];
+        for(int i = 0;i<nums.length;i++) {
+            int left = i+1;
+            int right = nums.length-1;
+            while(left<right) {
+                int sum = nums[i]+nums[left]+nums[right];
+                if(Math.abs(target-sum)<Math.abs(target-result)) {
+                    result = sum;
+                } else if(sum>target) {
+                    right--;
+                } else if(sum<target) {
+                    left++;
+                } else {
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+
 
     /**
      * 在排序数组中查找元素出现的第一个和最后一个位置
@@ -575,7 +604,7 @@ public class ArrayListTest {
      * 在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字
      * 方法一：使用hashMap
      */
-    public int findRepeatNumber(int [] nums) {
+    public static int findRepeatNumber(int [] nums) {
         Map<Integer,Integer> map = new HashMap<>();
         for(int i = 0;i<nums.length;i++) {
             if(map.containsKey(nums[i])) {
@@ -590,7 +619,8 @@ public class ArrayListTest {
     /**
      * 方法二：原地置换
      *
-     * 如果没有重复数字，那么正常排序后，数字i应该在下标为i的位置，所以思路是重头扫描数组，遇到下标为i的数字如果不是i的话，（假设为m),那么我们就拿与下标m的数字交换。在交换过程中，如果有重复的数字发生，那么终止返回ture
+     * 如果没有重复数字，那么正常排序后，数字i应该在下标为i的位置，所以思路是从头扫描数组，遇到下标为i的数字如果不是i的话，（假设为m),
+     * 那么我们就拿与下标m的数字交换。在交换过程中，如果有重复的数字发生，那么终止返回true
      *
      */
     public int findRepeatNumber1(int [] nums) {
@@ -609,4 +639,5 @@ public class ArrayListTest {
         }
         return -1;
     }
+
 }

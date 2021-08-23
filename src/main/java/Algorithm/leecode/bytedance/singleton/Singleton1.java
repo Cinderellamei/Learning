@@ -3,6 +3,7 @@ package Algorithm.leecode.bytedance.singleton;
 /**
  * 单线程下的单例模式
  * 缺点：多线程并发环境下无法保证多个线程获取的是同一个实例
+ * 懒汉式
  */
 public class Singleton1 {
     private static Singleton1 instance = null;

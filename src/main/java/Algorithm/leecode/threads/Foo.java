@@ -6,26 +6,27 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 按序打印
  */
 public class Foo {
-    private AtomicInteger firstJobDone = new AtomicInteger(0);
-    private AtomicInteger secondJobDone = new AtomicInteger(0);
+    private AtomicInteger jobDone=new AtomicInteger(0);
 
-    public Foo(){}
+    public Foo() {
 
-    public void First(Runnable printFirst) {
-        printFirst.run();
-        firstJobDone.incrementAndGet();
     }
 
-    public void second(Runnable printSecond) {
-        while(firstJobDone.get() != 1) {
+    public void first(Runnable printFirst) throws InterruptedException {
+        printFirst.run();
+        jobDone.incrementAndGet();
+    }
+
+    public void second(Runnable printSecond) throws InterruptedException {
+        while(jobDone.get()!=1) {
 
         }
         printSecond.run();
-        secondJobDone.incrementAndGet();
+        jobDone.incrementAndGet();
     }
 
-    public void third(Runnable printThird) {
-        while(secondJobDone.get() !=1) {
+    public void third(Runnable printThird) throws InterruptedException {
+        while(jobDone.get() != 2) {
 
         }
         printThird.run();

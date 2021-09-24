@@ -98,4 +98,54 @@ public class IntegerTest {
         return result;
     }
 
+    /**
+     * 二进制中1的个数
+     */
+    public static int numberOfone(int n) {
+        int result = 0;
+        while(n !=0) {
+            if((n&1)!=0) {
+                result++;
+            }
+            n = n>>>1;
+        }
+        return result;
+    }
+
+    /**
+     * 方法二：
+     */
+    public int NumberOf1(int n) {
+        int count = 0;
+        while(n!=0) {
+            n = (n-1)&n;
+            count++;
+        }
+        return count;
+    }
+
+    /**
+     * 最长的重复字符子串
+     */
+    public static int test(String s) {
+        int n = s.length();
+        int result = 0;
+        for(int i = n/2;i>0;i--) {
+            for(int j = 0;j<n-i;j++) {
+                if(s.charAt(j) == s.charAt(j+i)) {
+                    result++;
+                } else {
+                    result = 0;
+                }
+                if(result == i) {
+                    return 2*i;
+                }
+            }
+        }
+        return 0;
+    }
+
+
+
+
 }

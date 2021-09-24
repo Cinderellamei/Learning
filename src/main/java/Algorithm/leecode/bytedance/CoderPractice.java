@@ -570,7 +570,38 @@ public class CoderPractice {
 
     /**
      * 岛屿的数量
+     * 深度优先遍历：遍历每个节点，遇到值为1的，对他周围所有的节点进行遍历，并将值为1的设置为0，然后一次遍历结束完了，再次寻找下一个节点遍历
+     * 则遍历的次数即为岛屿的数量
      */
+    public int numIslands(char[][] grid) {
+        if(grid == null) {
+            return 0;
+        }
+        int row = grid.length;
+        int col = grid[0].length;
+        int count = 0;
+        for(int i = 0;i<row;i++) {
+            for(int j = 0;j<col;j++) {
+                if(grid[i][j] == '1') {
+                    count++;
+                    dfs(grid,i,j);
+                }
+            }
+        }
+        return count;
+    }
+
+    public void dfs(char [][] grid,int i,int j) {
+        if(i<0 || j<0 || i>=grid.length || j>=grid[i].length ||grid[i][j] == '0') {
+            return;
+        }
+        grid[i][j] = '0';
+        dfs(grid,i-1,j);
+        dfs(grid,i,j-1);
+        dfs(grid,i,j+1);
+        dfs(grid,i+1,j);
+    }
+
 
 
     /**

@@ -484,9 +484,274 @@ public class BaiduTest {
         return stack.isEmpty();
     }
 
-    public static void main(String [] args) {
-        String s = "{}[](*)";
-        System.out.println(isValid(s));
+    /**
+     * 数组中重复的元素
+     */
+    public int repeat(int [] nums) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int num:nums){
+            if(map.containsKey(num)) {
+                return num;
+            } else {
+                map.put(num,1);
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 子序列的最大值
+     */
+    public int maxSum(int [] nums) {
+        int result =0;
+        int total = 0;
+        for(int i = 0;i<nums.length;i++) {
+            if(total>0) {
+                total += nums[i];
+            } else {
+                total = nums[i];
+            }
+            result = Math.max(result,total);
+        }
+        return result;
+    }
+
+
+    /**
+     * 最长无重复子串
+     */
+    public int maxLenght(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        int i = -1;
+        int result = 0;
+        for(int j = 0;j<s.length();j++) {
+            char ch = s.charAt(j);
+            if(map.containsKey(ch)) {
+                i = Math.max(i,map.get(ch));
+            }
+            map.put(ch,j);
+            result = Math.max(result,j-i);
+        }
+        return result;
+    }
+
+    /**
+     * 比较版本号
+     */
+    public int compareVersion(String version1, String version2) {
+        String [] arr1 = version1.split("\\.");
+        String [] arr2 = version2.split("\\.");
+
+        int len1 = arr1.length;
+        int len2 = arr2.length;
+
+        for(int n = 0;n<Math.max(len1,len2);n++) {
+            int x = n<len1?Integer.parseInt(arr1[n]):0;
+            int y = n<len2?Integer.parseInt(arr2[n]):0;
+            if(x !=y) {
+                return x>y?1:-1;
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * 两个数组的交集
+     * 方法：两个set
+     */
+    public int [] intersection(int [] nums1,int [] nums2) {
+        HashSet<Integer> set1 = new HashSet<>();
+        HashSet<Integer> set2 = new HashSet<>();
+        for(int num1:nums1) {
+            set1.add(num1);
+        }
+
+        for(int num2:nums2) {
+            if(set1.contains(num2)) {
+                set2.add(num2);
+            }
+        }
+
+        int [] result = new int[set2.size()];
+        int i = 0;
+        for(int number :set2) {
+            result[i++] = number;
+        }
+        return result;
+    }
+
+    /**
+     * 两个数组的交集II)
+     */
+    public static int [] intersect(int [] nums1,int [] nums2) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int num:nums1) {
+            int count =map.getOrDefault(num,0)+1;
+            map.put(num,count);
+        }
+
+        int index = 0;
+        int [] result = new int[nums1.length];
+        for(int num:nums2) {
+            int count = map.getOrDefault(num,0);
+            if(count>0) {
+                result[index++] = num;
+                count--;
+                if(count>0) {
+                    map.put(num,count);
+                } else {
+                    map.remove(num);
+                }
+            }
+        }
+        return Arrays.copyOfRange(result,0,index);
+    }
+
+    /**
+     * 汉明距离
+     */
+    public int hanmingDistance(int x,int y) {
+        int s = x^y;
+        int result = 0;
+        while(s!=0) {
+            result += s&1;
+            s>>=1;
+        }
+        return result;
+    }
+
+    /**
+     * 输出所有回文子串
+     */
+    public static ArrayList<String> allPalindrome(String s) {
+        ArrayList<String> result = new ArrayList<>();
+        //子串长度从2到整个字符串的长度
+        for(int len  =2;len<=s.length();len++) {
+            //遍历所有长度为len的字符串，从第一个字符开始
+            for(int i = 0;i<=s.length()-len;i++) {
+                String subStr = s.substring(i,i+len);
+                if(isPalindrome(subStr)) {
+                    result.add(subStr);
+                }
+            }
+        }
+        return result;
+    }
+
+    public static boolean isPalindrome(String str) {
+        if(str == null) {
+            return false;
+        }
+        int i = 0;
+        int j = str.length()-1;
+        while(i<j) {
+            if(str.charAt(i)!=str.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+    /**
+     * 回文子串的个数
+     */
+    public int countSubstrings(String s) {
+        int result1 = 0;
+        int result2 = 0;
+        for(int i = 0;i<s.length();i++) {
+            result1 += isPalindrome(s,i,i);
+            result2 += isPalindrome(s,i,i+1);
+        }
+        return result1+result2;
+    }
+
+    public int isPalindrome(String s,int left,int right) {
+        int count = 0;
+        while(left>=0 && right<s.length() && s.charAt(left) == s.charAt(right)) {
+            count++;
+            left--;
+            right++;
+        }
+        return count;
+    }
+
+    /**
+     * 返回前k个高频字符
+     */
+    public List<String> topKFrequent(String[] words, int k) {
+        HashMap<String,Integer> map = new HashMap<>();
+        for(String word:words) {
+            if(map.containsKey(word)) {
+                map.put(word,map.get(word)+1);
+            } else {
+                map.put(word,1);
+            }
+        }
+
+        PriorityQueue<String> queue = new PriorityQueue<>(new Comparator<String>() {
+            @Override
+            public int compare(String s1,String s2) {
+                if(map.get(s1).equals(map.get(s2))) {
+                    return s2.compareTo(s1);
+                } else {
+                    return map.get(s1)-map.get(s2);
+                }
+            }
+        });
+        for(String key:map.keySet()) {
+            queue.add(key);
+            if(queue.size()>k) {
+                queue.poll();
+            }
+        }
+        List<String> result = new ArrayList<>();
+        while(!queue.isEmpty()) {
+            result.add(queue.poll());
+        }
+        Collections.reverse(result);
+        return result;
+    }
+
+    /**
+     * 字符串出现次数的topK问题
+     */
+    public String[][] topKstrings (String[] strings, int k) {
+        // write code here
+        HashMap<String,Integer> map = new HashMap<>();
+        for(String str:strings) {
+            if(map.containsKey(str)) {
+                map.put(str,map.get(str)+1);
+            } else {
+                map.put(str,1);
+            }
+        }
+        PriorityQueue<String> queue = new PriorityQueue<>(new Comparator<String>() {
+            @Override
+            public int compare(String s1,String s2) {
+                if(map.get(s1).equals(map.get(s2))) {
+                    return s2.compareTo(s1);
+                } else {
+                    return map.get(s1)-map.get(s2);
+                }
+            }
+        });
+        for(String key:map.keySet()) {
+            queue.add(key);
+            if(queue.size()>k) {
+                queue.poll();
+            }
+        }
+        String [][] result = new String[k][2];
+        int index = k-1;
+        while(!queue.isEmpty()) {
+            String s = queue.poll();
+            result[index][0] = s;
+            result[index][1] = map.get(s)+"";
+            index--;
+        }
+        return result;
     }
 
 

@@ -85,6 +85,7 @@ public class StringTest {
         return result;
     }
 
+
     /**
     * 方法二：滑动窗口,窗口内是不重复的子串，如果加入右边元素后不满足要求，则将左边窗口向右收缩，若加入右边元素后满足要求，则继续将
     * 右边窗口向右扩张
@@ -142,6 +143,55 @@ public class StringTest {
     }
 
     /**
+     * 最长公共子串（返回子串）
+     */
+    public static String LCS(String s1,String s2) {
+        int m = s1.length();
+        int n = s2.length();
+        int [][] dp = new int[m+1][n+1];
+        for(int i = 1;i<=n;i++) {
+            char ch1 = s1.charAt(i-1);
+            for(int j = 1;j<=n;j++) {
+                char ch2 = s2.charAt(j-1);
+                if(ch1 == ch2) {
+                    dp[i][j] = dp[i-1][j-1]+1;
+                } else {
+                    dp[i][j] = Math.max(dp[i][j-1],dp[i-1][j]);
+                }
+            }
+        }
+
+        if(dp[m][n] == 0) {
+            return "-1";
+        }
+        int i = m;
+        int j = n;
+        StringBuffer sb = new StringBuffer();
+        while(i>0 && j>0) {
+            if(s1.charAt(i-1) == s2.charAt(j-1)) {
+                sb.append(s1.charAt(i-1));
+                i--;
+                j--;
+            } else {
+                if(dp[i][j-1]>dp[i-1][j]) {
+                    j--;
+                } else if(dp[i][j-1]<dp[i-1][j]) {
+                    i--;
+                } else if(dp[i][j-1] == dp[i-1][j]) {
+                    j--;
+                }
+            }
+        }
+        return sb.reverse().toString();
+    }
+
+    public static void main(String [] args) {
+        String s1 = "1A2C3D4B56";
+        String s2 = "B1D23A456A";
+        System.out.println(LCS(s1,s2));
+    }
+
+    /**
      * 大数加法（牛客）
      * 以字符串的形式读入两个数字，编写一个函数计算它们的和，以字符串形式返回。
      * （字符串长度不大于100000，保证字符串仅由'0'~'9'这10种字符组成）
@@ -195,5 +245,43 @@ public class StringTest {
         }
         return sb.toString();
     }
+
+    /**
+     * 最长回文串
+     *
+     * 给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
+     * 在构造过程中，请注意区分大小写。比如 "Aa" 不能当做一个回文字符串
+     */
+    public int longestPalindrome(String s) {
+        int maxLen = 0;
+        int [] count = new int[128];
+        int length = s.length();
+        for(int i = 0;i<s.length();i++) {
+            char c = s.charAt(i);
+            count[c]++;
+        }
+        for(int num:count) {
+            maxLen += num/2*2;
+            if(num%2==1 && maxLen%2 ==0) {
+                maxLen++;
+            }
+        }
+        return maxLen;
+    }
+
+    /**
+     * 字符串去重
+     * 如果一个字符第一次出现的位置就是当前位置，那么将字符加入到要返回的对象中，这样最后得到的就是不重复的字符串
+     */
+    public static String noRepeat(String s) {
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0;i<s.length();i++) {
+            if(s.indexOf(s.charAt(i)) == i) {
+                sb.append(s.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
 
 }

@@ -172,10 +172,10 @@ public class TreeNodeTest {
      * 设计一个算法，找出二叉搜索树中指定节点的“下一个”节点（也即中序后继）。
      * 如果指定节点没有对应的“下一个”节点，则返回null。
      * 方法一：BST+递归
-     * 如果结点 p 的值大于等于 root 的值，说明 p 的后继结点在 root 右子树中，那么就递归到右子树中查找。
-     * 如果结点 p 的值小于 root 的值，说明 p 在 root 左子树中，而它的后继结点有两种可能，要么也在左子树中，要么就是 root：
+     * 如果结点p的值大于等于root的值，说明p的后继结点在root右子树中，那么就递归到右子树中查找。
+     * 如果结点p的值小于root的值，说明p在root左子树中，而它的后继结点有两种可能，要么也在左子树中，要么就是root：
      * 如果左子树中找到了后继结点，那就直接返回答案。
-     * 如果左子树中没有找到后继结点，那就说明 p 的右儿子为空，那么 root 就是它的后继结点。
+     * 如果左子树中没有找到后继结点，那就说明p的右儿子为空，那么root就是它的后继结点。
      */
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         if (root == null || p == null) {
@@ -420,17 +420,25 @@ public class TreeNodeTest {
         if (root == null) {
             return null;
         }
+        //初始化队列
         Queue<Node> queue = new LinkedList<>();
+        //将第一层节点放入队列中，即根节点
         queue.add(root);
+        //外层的while循环迭代的是层数
         while (!queue.isEmpty()) {
+            //记录当前层次节点个数
             int size = queue.size();
+            //遍历这一层的所有节点
             for (int i = 0; i < size; i++) {
+                //从队首取出元素
                 Node node = queue.poll();
+                //连接节点
                 if (i == size - 1) {
                     node.next = null;
                 } else {
                     node.next = queue.peek();
                 }
+                //拓展下一层节点
                 if (node.left != null) {
                     queue.add(node.left);
                 }

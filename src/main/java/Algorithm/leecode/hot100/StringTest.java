@@ -361,9 +361,49 @@ public class StringTest {
      * 最长回文字串
      * 给你一个字符串s，找到s中最长的回文子串。
      *
+     * 方法一：动态规划
      */
     public String longestPalindrome(String s) {
-        return "";
+        int len = s.length();
+        if(len<2) {
+            return s;
+        }
+
+        int maxLen=1;
+        int begin=0;
+
+        boolean [][] dp = new boolean[len][len];
+        for(int i = 0;i<len;i++) {
+            dp[i][i] = true;
+        }
+
+        char [] charArray = s.toCharArray();
+
+        for(int j = 1;j<len;j++) {
+            for(int i = 0;i<j;i++) {
+                if(charArray[i] != charArray[j]) {
+                    dp[i][j] = false;
+                } else {
+                    //如果开始位置和结束位置之间只剩一个元素，则从i到j是回文子串
+                    if(j-i<3) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i+1][j-1];
+                    }
+                }
+                //如果i到j是回文子串，而且子串的长度大于maxLen，则更新maxLen
+                if(dp[i][j] == true && j-i+1>maxLen) {
+                    maxLen = j-i+1;
+                    begin=i;
+                }
+            }
+        }
+        return s.substring(begin,begin+maxLen);
     }
+
+    /**
+     * 方法二：中心扩散
+     */
+
 
 }

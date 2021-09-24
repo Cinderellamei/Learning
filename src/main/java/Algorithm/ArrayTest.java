@@ -878,5 +878,95 @@ public class ArrayTest {
 
     }
 
+    /**
+     * 最小路径和
+     * 给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
+     * 说明：每次只能向下或者向右移动一步。
+     * 思路：动态规划：第一个元素的路径值就是自己，第一上的元素的路径只能由自己左边的元素得到，第一列上的元素的路径只能由自己上面的元素得到，
+     * 而剩下元素的路径可以由自己左边元素或上方元素得到，选取最小的路径，再加上当前元素的值，以此递推下去，最后dp[row-w][col-1]的值就是最后
+     * 的最小路径和
+     */
+    public int minPathSum(int [][] grid) {
+        if(grid == null) {
+            return 0;
+        }
+        int row = grid.length;
+        int col = grid[0].length;
+        int [][] dp = new int[row][col];
+        dp[0][0] = grid[0][0];
+        for(int i = 1;i<row;i++) {
+            dp[i][0] = dp[i-1][0]+grid[i][0];
+        }
+        for(int j = 1;j<col;j++) {
+            dp[0][j] = dp[0][j-1]+grid[0][j];
+        }
+        for(int i = 1;i<row;i++) {
+            for(int j = 1;j<col;j++) {
+                dp[i][j] = Math.min(dp[i-1][j],dp[i][j-1])+grid[i][j];
+            }
+        }
+        return dp[row-1][col-1];
+    }
+
+    /**
+     * kmp算法（牛客）
+     * 给你一个文本串S，一个非空模板串T，问S在T中出现了多少次
+     */
+    public static int kmp(String S,String T) {
+        int time = 0;
+        int shortLen = S.length();
+        int longLen = T.length();
+        for(int i  =0;i<=longLen-shortLen;i++) {
+            if(S.equals(T.substring(i,shortLen+i))) {
+                time++;
+            }
+        }
+        return time;
+    }
+
+    /**
+     * 合并区间
+     */
+    public class Interval{
+        int start;
+        int end;
+        Interval(){
+            start = 0;
+            end = 0;
+        }
+        Interval(int s,int e) {
+            this.start = s;
+            this.end = e;
+        }
+
+    }
+    public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
+        ArrayList<Interval> result = new ArrayList<>();
+        Collections.sort(intervals,new Comparator<Interval>() {
+            @Override
+            public int compare(Interval a,Interval b) {
+                return a.start-b.start;
+            }
+        });
+        int len = intervals.size();
+        if(len == 0) {
+            return result;
+        }
+        for(int i = 0;i<len;i++) {
+            int left = intervals.get(i).start;
+            int right = intervals.get(i).end;
+            if(result.isEmpty() || result.get(result.size()-1).end < left) {
+                result.add(intervals.get(i));
+            } else {
+                result.get(result.size()-1).end = Math.max(result.get(result.size()-1).end,right);
+            }
+        }
+        return result;
+    }
+
+
+
+
+
 }
 

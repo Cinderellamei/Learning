@@ -591,6 +591,42 @@ public class ArrayListTest {
     }
 
     /**
+     * 最长递增子序列(返回子序列，牛客)
+     */
+    public static int [] test(int [] arr) {
+        ArrayList<Integer> result = new ArrayList<>();
+        int [] len = new int[arr.length];
+        len[0] = 1;
+        result.add(arr[0]);
+        for(int i = 1;i<arr.length;i++) {
+            if(result.get(result.size()-1)<arr[i]) {
+                result.add(arr[i]);
+                len[i] = result.size();
+            } else {
+                for(int j = result.size()-1;j>=0;j--) {
+                    if(result.get(j)<arr[i]) {
+                        result.set(j+1,arr[i]);
+                        len[i] = j+2;
+                        break;
+                    }
+                    if(j == 0) {
+                        result.set(0,arr[i]);
+                        len[i] = 1;
+                    }
+                }
+            }
+        }
+        int [] res = new int [result.size()];
+        int j = result.size();
+        for(int i = len.length-1;i>=0;i--) {
+            if(len[i] == j) {
+                res[--j] = arr[i];
+            }
+        }
+        return res;
+    }
+
+    /**
      * 方法二：贪心算法+二分查找
      */
     public int lengthOfLIS1(int [] nums) {
@@ -640,4 +676,36 @@ public class ArrayListTest {
         return -1;
     }
 
+    /**
+     * 打家劫舍
+     *
+     * 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+     * 给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
+     *
+     * 思路：动态规划
+     * 1.偷窃第k间房屋，那么就不能偷窃第k−1间房屋，偷窃总金额为前k−2间房屋的最高总金额与第k间房屋的金额之和。
+     *
+     * 2.不偷窃第k间房屋，偷窃总金额为前k−1间房屋的最高总金额。
+     */
+    public int rob(int [] nums) {
+        if(nums == null) {
+            return 0;
+        }
+        int length = nums.length;
+        if(length == 1) {
+            return nums[0];
+        }
+
+        int [] dp = new int[length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0],nums[1]);
+        for(int i = 2;i<length;i++) {
+            dp[i] = Math.max(dp[i-2]+nums[i],dp[i-1]);
+        }
+        return dp[length-1];
+    }
+
+    /**
+     * 打家劫舍II
+     */
 }
